@@ -1,0 +1,11 @@
+.grid {
+    margin: 50px auto;
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 5px;
+    justify-content: center;
+}
+
+.hide{
+    display: none;
+}
