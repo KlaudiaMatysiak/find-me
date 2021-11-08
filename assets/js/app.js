@@ -39,19 +39,12 @@ function randomizeMainPic() {
     console.log(randomIndex);
 }
 
-// Add hide class
-function addHide() {
-    let pictureHide = document.querySelectorAll('picture');
-    pictureHide.classList.add('hide');
-}
-
 // Random nine pictures
 function createBoard() {
     currentGamePics = picsArray.sort(() => 0.5 - Math.random()).slice(0, 9);
     currentGamePics.forEach((img, i) => {
         const element = document.querySelector(`.card:nth-child(${i+1}) img.picture`);
         element.src = `assets/images/${img}.jpg`;
-        setTimeout(addHide, 2000);
     })
 }
 
