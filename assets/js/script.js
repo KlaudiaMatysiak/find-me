@@ -26,10 +26,10 @@ function initializeGame() {
 
 // Game controls
 function handleGameControls() {
-    const playButton = document.getElementById('start');
+    const playButton = document.querySelector('#start');
     playButton.addEventListener('click', () => {
-        createBoard();
-        setTimeout(randomizeMainPic, 5000);
+        startGame();
+        playButton.setAttribute('disabled', true);
     });
     const cards = document.querySelectorAll('.card');
     cards.forEach((item) => {
@@ -38,21 +38,29 @@ function handleGameControls() {
             const card = event.target.closest('.card');
             const cardValue = card && card.dataset.id;
             card.classList.add('show');
+            // Check for matches
             if (cardValue === drawnMainPic) {
                 setTimeout(() => {
                     card.classList.remove('show');
                     updateScore();
-                    createBoard();
-                    randomizeMainPic();
+                    startGame();
                 }, 2000);
             } else {
                 setTimeout(() => {
+                    gameOver();
                     updateScore(0);
                     card.classList.remove('show');
                 }, 1000);
             }
         })
     });
+}
+
+// Start game
+function startGame() {
+    createBoard();
+    setTimeout(randomizeMainPic, 5500);
+    startCountDown();
 }
 
 // Score points
@@ -67,10 +75,13 @@ function updateScore(value) {
 
 // Random main picture
 function randomizeMainPic() {
-    const previewPic = document.querySelector('img.preview');
+    const previewPic = document.querySelector('img.main-pic');
     let randomIndex = Math.floor(Math.random() * currentGamePics.length);
     drawnMainPic = currentGamePics[randomIndex];
     previewPic.src = `assets/images/${drawnMainPic}.jpg`;
+    startCountDown();
+    setTimeout(gameOver, 5000);
+    setTimeout(visibilityMainPicture,5000);
 }
 
 // Random nine pictures
@@ -82,17 +93,37 @@ function createBoard() {
         const image = card.querySelector(`img.averse`);
         image.src = `assets/images/${img}.jpg`;
     })
-    setTimeout(flipTheBoard, 2000);
-    setTimeout(flipTheBoard, 4000);
+    setTimeout(flipTheBoard, 1000);
+    setTimeout(flipTheBoard, 5000);
 }
-
-
-// Check for matches
-
 
 // Flip the pic
 function flipTheBoard() {
     grid.classList.toggle('show');
 }
 
+// Visibility of main picture
+function visibilityMainPicture() {
+    const mainPic = document.querySelector('.main-pic');
+    mainPic.classList.toggle('visibility');
+}
+
 // Timer
+function startCountDown() {
+    let timer = document.querySelector('.time-value');
+    var timeLeft = 4;
+    var gameTimer = setInterval(() => {
+        if (timeLeft <= 0) {
+            clearInterval(gameTimer);
+            timer.innerHTML = 0;
+        } else {
+            timer.innerHTML = timeLeft;
+        }
+        timeLeft --;
+    }, 1000)
+}
+
+// Gameover
+function gameOver() {
+    console.log('Game Over');
+}
