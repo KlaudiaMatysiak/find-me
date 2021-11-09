@@ -2,46 +2,78 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/script.js"></script>
-    <title>Find Me!</title>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="assets/css/style.css">
+        <script src="assets/js/script.js"></script>
+        <title>Find Me!</title>
 </head>
 
 <body>
-    <div class="game-container">
-        <h1>Find Me!</h1>
-        <button id="start">Play!</button>
-        <div class="game-info">
-            Time left: <span class="time-value">5s</span>
-            Score: <span class="score-value">0</span>
+        <div class="game-info-container">
+                <h1>Find Me!</h1>
+                <div id="start" class="button">Play!</div>
+                <div id="rules" class="button">Rules</div>
         </div>
-        <div class="main-pic">
-            <img class="preview">
+        <div class="rules-container">
+                <h1>Rules of the <span class="find-me">Find Me!</span> Game</h1>
+                <p>1. You have 5 seconds to remember pictures on the board.</p>
+                <p>2. Then you have 5 second to find matching picture on the board to the one above.</p>
+                <p>3. If you ran out of time then the game is over.</p>
+                <p>4. For every match you gain 1 point for your personal score.</p>
         </div>
-        <div class="grid">
-            <div class="card"><img src="assets/images/reverse-pattern.jpg" alt="" class="reverse"><img src="" alt=""
-                    class="averse"></div>
-            <div class="card"><img src="assets/images/reverse-pattern.jpg" alt="" class="reverse"><img src="" alt=""
-                    class="averse"></div>
-            <div class="card"><img src="assets/images/reverse-pattern.jpg" alt="" class="reverse"><img src="" alt=""
-                    class="averse"></div>
-            <div class="card"><img src="assets/images/reverse-pattern.jpg" alt="" class="reverse"><img src="" alt=""
-                    class="averse"></div>
-            <div class="card"><img src="assets/images/reverse-pattern.jpg" alt="" class="reverse"><img src="" alt=""
-                    class="averse"></div>
-            <div class="card"><img src="assets/images/reverse-pattern.jpg" alt="" class="reverse"><img src="" alt=""
-                    class="averse"></div>
-            <div class="card"><img src="assets/images/reverse-pattern.jpg" alt="" class="reverse"><img src="" alt=""
-                    class="averse"></div>
-            <div class="card"><img src="assets/images/reverse-pattern.jpg" alt="" class="reverse"><img src="" alt=""
-                    class="averse"></div>
-            <div class="card"><img src="assets/images/reverse-pattern.jpg" alt="" class="reverse"><img src="" alt=""
-                    class="averse"></div>
+        <div class="game-container">
+                <div class="game-stats-container">
+                        <div class="game-stats">
+                                Time left: <span class="time-value">5</span> sec
+                        </div>
+                        <div class="game-stats">
+                                Score: <span class="score-value">0</span>
+                        </div>
+                </div>
+                <div class="main-pic-container">
+                        <img class="main-pic">
+                </div>
+                <div class="grid">
+                        <div class="card">
+                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                                <img src="" alt="" class="averse">
+                        </div>
+                        <div class="card">
+                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                                <img src="" alt="" class="averse">
+                        </div>
+                        <div class="card">
+                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                                <img src="" alt="" class="averse">
+                        </div>
+                        <div class="card">
+                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                                <img src="" alt="" class="averse">
+                        </div>
+                        <div class="card">
+                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                                <img src="" alt="" class="averse">
+                        </div>
+                        <div class="card">
+                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                                <img src="" alt="" class="averse">
+                        </div>
+                        <div class="card">
+                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                                <img src="" alt="" class="averse">
+                        </div>
+                        <div class="card">
+                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                                <img src="" alt="" class="averse">
+                        </div>
+                        <div class="card">
+                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                                <img src="" alt="" class="averse">
+                        </div>
+                </div>
         </div>
-    </div>
 </body>
 
 </html>
