@@ -1,30 +1,145 @@
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
+
 body {
     height: 100vh;
-    background: radial-gradient(#ade0f5, #8ec8df, #71a8be, #4f7483, #1b2d35);
+    /* background: radial-gradient(#ade0f5, #8ec8df, #71a8be, #4f7483, #1b2d35); */
+    background-color: #8ec8df;
+    font-family: 'Mochiy Pop P One', sans-serif;
+    color: white;
+    margin: 0;
 }
 
-.game-container, 
-.game-info-container,
-.rules-container {
-    display: grid;
-    grid-column: auto;
-    justify-items: center;
+body * {
+    box-sizing: border-box;
 }
 
-.none {
-    display: none;
+.page-content {
+    min-height: calc(100vh - 70px);
+    max-width: 340px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    filter: blur(10px);
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+}
+
+.page.show {
+    opacity: 1;
+    filter: blur(0px);
+    pointer-events: initial;
+}
+
+.page.menu-view {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.menu-view h1 {
+    margin: 0 0 3em;
+}
+
+.menu-view .button {
+    margin: 25px 0;
+}
+
+.page.menu-view *:last-child {
+    margin-bottom: 10vh;
+}
+
+.page.game-view {
+}
+
+.game-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+    justify-content: space-evenly;
+}
+
+.footer {
+    height: 50px;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: auto;
+}
+
+.footer i {
+    text-decoration: none;
+    font-size: 36px;
+    color: white;
 }
 
 .button {
     display: block;
-    width: 9em;
-    height: 2em;
+    border: 0;
+    width: 180px;
+    height: 55px;
     border-radius: 1em;
-    box-shadow: 2px 2px 2px rgb(0 0 0 / 25%);
-    background-image: linear-gradient(to right,#ffb6bb, #ffe691);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    /* background-image: linear-gradient(to right,#ffb6bb, #ffe691); */
+    background: #fafafa;
     line-height: 2;
     text-align: center;
     margin: 5px;
+    color: #8ec8df;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 32px;
+    letter-spacing: 1px;
+    align-items: ;
+}
+
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding: 20px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 20px;
+    border: 1px solid #888;
+    color: #1b2d35;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .game-stats {
@@ -34,10 +149,17 @@ body {
 
 .main-pic-container {
     background: url("../images/loading.gif");
+    background-size: cover;
+}
+
+.main-pic {
+    display: block;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
 }
 
 .main-pic.visibility {
-    opacity: 0.5;
+    opacity: 1;
 }
 
 .grid {
@@ -74,4 +196,8 @@ body {
 .grid.show .card, 
 .card.show {
     transform: rotateY(180deg);
+}
+
+img {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
