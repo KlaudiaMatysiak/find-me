@@ -2,78 +2,104 @@
 <html lang="en">
 
 <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="assets/css/style.css">
-        <script src="assets/js/script.js"></script>
-        <title>Find Me!</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+        integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <script src="assets/js/script.js"></script>
+    <title>Find Me!</title>
 </head>
 
 <body>
-        <div class="game-info-container">
-                <h1>Find Me!</h1>
-                <button id="start" class="button">Play!</button>
-                <button id="rules" class="button">Rules</button>
+    <div class="page-content">
+        <div class="page menu-view">
+            <h1>Find Me!</h1>
+            <button id="start" class="button">PLAY</button>
+            <button id="rules" class="button"><span>RULES</span></button>
         </div>
-        <div class="rules-container">
+        <div class="page game-view">
+            <div class="game-container">
+                <div class="game-stats-container">
+                    <div class="game-stats">
+                        <span class="timer-text">Time</span>: <span class="time-value">5</span>
+                    </div>
+                    <div class="game-stats">
+                        Score: <span class="score-value">0</span>
+                    </div>
+                </div>
+                <div class="main-pic-container">
+                    <img class="main-pic">
+                </div>
+                <div class="grid">
+                    <div class="card">
+                        <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                        <img src="" alt="" class="averse">
+                    </div>
+                    <div class="card">
+                        <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                        <img src="" alt="" class="averse">
+                    </div>
+                    <div class="card">
+                        <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                        <img src="" alt="" class="averse">
+                    </div>
+                    <div class="card">
+                        <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                        <img src="" alt="" class="averse">
+                    </div>
+                    <div class="card">
+                        <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                        <img src="" alt="" class="averse">
+                    </div>
+                    <div class="card">
+                        <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                        <img src="" alt="" class="averse">
+                    </div>
+                    <div class="card">
+                        <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                        <img src="" alt="" class="averse">
+                    </div>
+                    <div class="card">
+                        <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                        <img src="" alt="" class="averse">
+                    </div>
+                    <div class="card">
+                        <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
+                        <img src="" alt="" class="averse">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="modal-rules" class="modal">
+            <div class="modal-content">
+                <span id="close-rules" class="close">&times;</span>
                 <h1>Rules of the <span class="find-me">Find Me!</span> Game</h1>
                 <p>1. You have 5 seconds to remember pictures on the board.</p>
                 <p>2. Then you have 5 second to find matching picture on the board to the one above.</p>
                 <p>3. If you ran out of time then the game is over.</p>
-                <p>4. For every match you gain 1 point for your personal score.</p>
+                <p>4. For every match you gain 1 point.</p>
+            </div>
         </div>
-        <div class="game-container">
-                <div class="game-stats-container">
-                        <div class="game-stats">
-                                Time left: <span class="time-value">5</span> sec
-                        </div>
-                        <div class="game-stats">
-                                Score: <span class="score-value">0</span>
-                        </div>
-                </div>
-                <div class="main-pic-container">
-                        <img class="main-pic">
-                </div>
-                <div class="grid">
-                        <div class="card">
-                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
-                                <img src="" alt="" class="averse">
-                        </div>
-                        <div class="card">
-                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
-                                <img src="" alt="" class="averse">
-                        </div>
-                        <div class="card">
-                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
-                                <img src="" alt="" class="averse">
-                        </div>
-                        <div class="card">
-                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
-                                <img src="" alt="" class="averse">
-                        </div>
-                        <div class="card">
-                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
-                                <img src="" alt="" class="averse">
-                        </div>
-                        <div class="card">
-                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
-                                <img src="" alt="" class="averse">
-                        </div>
-                        <div class="card">
-                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
-                                <img src="" alt="" class="averse">
-                        </div>
-                        <div class="card">
-                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
-                                <img src="" alt="" class="averse">
-                        </div>
-                        <div class="card">
-                                <img src="assets/images/reverse-pattern.jpg" alt="" class="reverse">
-                                <img src="" alt="" class="averse">
-                        </div>
-                </div>
+        <div id="game-over" class="modal">
+            <div class="modal-content">
+                <h2>GAME OVER</h2>
+                <p>You lost the game.</p>
+                <p>Your score was <span id="end-score">0</span></p>
+                <button class="button">PLAY AGAIN</button>
+            </div>
         </div>
+    </div>
+    <footer class="footer">
+        <a href="https://www.linkedin.com/in/klaudia-matysiak-99617a223/" target="_blank" rel="noopener"
+            aria-label="linkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://github.com/KlaudiaMatysiak" target="_blank" rel="noopener" aria-label="Github"><i
+                class="fab fa-github"></i></a>
+        <a href="http://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i
+                class="fab fa-instagram ig"></i></a>
+    </footer>
 </body>
 
 </html>
