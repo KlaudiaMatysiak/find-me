@@ -1,4 +1,18 @@
 document.addEventListener('DOMContentLoaded', initializeGame);
+// Modal 
+function rulesModal() {
+    var modal = document.querySelector('#modal-rules');
+    var btn = document.querySelector('#rules');
+    var span = document.querySelector('#close-rules');
+    btn.onclick = () => modal.style.display = 'flex';
+    span.onclick = () => modal.style.display = 'none';
+    window.onclick = event => {
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
+}
+
 
 // Create array with images for the game
 const picsArray = [
@@ -18,16 +32,25 @@ let currentGamePics;
 let drawnMainPic;
 let revealedCards = [];
 let score = 0;
+let menuView;
+let gameView;
+
 
 function initializeGame() {
     grid = document.querySelector('.grid');
+    menuView = document.querySelector('.menu-view');
+    gameView = document.querySelector('.game-view');
     handleGameControls();
+    rulesModal();
+    menuView.classList.add('show');
 }
 
 // Game controls
 function handleGameControls() {
     const playButton = document.querySelector('#start');
     playButton.addEventListener('click', () => {
+        menuView.classList.remove('show');
+        gameView.classList.add('show');
         startGame();
         playButton.setAttribute('disabled', true);
     });
@@ -59,8 +82,22 @@ function handleGameControls() {
 // Start game
 function startGame() {
     createBoard();
+    flipTheBoard();
+    setTimeout(() => {
+        const prepareTime = 5;
+        startCountDown(prepareTime, "Prepare");
+        visibilityMainPicture();
+        setTimeout(() => {
+            flipTheBoard();
+            setTimeout(()=>{
+                startCountDown(5, 'Game Time');
+                setTimeout(() =>{
+                    gameOver();
+                }, 5000);
+            }, 800);
+        }, prepareTime*1000)
+    }, 800);
     setTimeout(randomizeMainPic, 5500);
-    startCountDown();
 }
 
 // Score points
@@ -79,9 +116,6 @@ function randomizeMainPic() {
     let randomIndex = Math.floor(Math.random() * currentGamePics.length);
     drawnMainPic = currentGamePics[randomIndex];
     previewPic.src = `assets/images/${drawnMainPic}.jpg`;
-    startCountDown();
-    setTimeout(gameOver, 5000);
-    setTimeout(visibilityMainPicture,5000);
 }
 
 // Random nine pictures
@@ -92,9 +126,7 @@ function createBoard() {
         card.setAttribute('data-id', img);
         const image = card.querySelector(`img.averse`);
         image.src = `assets/images/${img}.jpg`;
-    })
-    setTimeout(flipTheBoard, 1000);
-    setTimeout(flipTheBoard, 5000);
+    });
 }
 
 // Flip the pic
@@ -109,17 +141,18 @@ function visibilityMainPicture() {
 }
 
 // Timer
-function startCountDown() {
+function startCountDown(timeLeft, timerText) {
     let timer = document.querySelector('.time-value');
-    var timeLeft = 4;
+    let text = document.querySelector('.timer-text');
+    text.innerText = timerText;
     var gameTimer = setInterval(() => {
+        timeLeft--;
         if (timeLeft <= 0) {
             clearInterval(gameTimer);
             timer.innerHTML = 0;
         } else {
             timer.innerHTML = timeLeft;
         }
-        timeLeft --;
     }, 1000)
 }
 
