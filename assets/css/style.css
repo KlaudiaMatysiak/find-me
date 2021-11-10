@@ -3,7 +3,6 @@
 
 body {
     height: 100vh;
-    /* background: radial-gradient(#ade0f5, #8ec8df, #71a8be, #4f7483, #1b2d35); */
     background-color: #8ec8df;
     font-family: 'Mochiy Pop P One', sans-serif;
     color: white;
@@ -31,6 +30,7 @@ body * {
     filter: blur(10px);
     transition: all 0.3s ease-in-out;
     pointer-events: none;
+    user-select: none;
 }
 
 .page.show {
@@ -92,7 +92,6 @@ body * {
     height: 55px;
     border-radius: 1em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    /* background-image: linear-gradient(to right,#ffb6bb, #ffe691); */
     background: #fafafa;
     line-height: 2;
     text-align: center;
@@ -198,6 +197,8 @@ body * {
     transform: rotateY(180deg);
 }
 
-img {
+img.reverse,
+img.averse,
+img.main-pic {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
