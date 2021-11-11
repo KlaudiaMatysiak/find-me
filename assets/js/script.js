@@ -1,33 +1,7 @@
 document.addEventListener('DOMContentLoaded', initializeGame);
-// Modal 
-function rulesModal() {
-    var modal = document.querySelector('#modal-rules');
-    var btn = document.querySelector('#rules');
-    var span = document.querySelector('#close-rules');
-    btn.onclick = () => modal.style.display = 'flex';
-    span.onclick = () => modal.style.display = 'none';
-    window.onclick = event => {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    }
-}
-
-function gameOverModal(on) {
-    var modal = document.querySelector('#modal-game-over');
-    var span = document.querySelector('#close-game-over');
-    modal.style.display = on;
-    span.onclick = () => modal.style.display = 'none';
-    window.onclick = event => {
-        if (event.target == modal) {
-            modal.style.display = 'none'
-        }
-        // location.reload(true);
-    }
-}
-
+ 
 // Create array with images for the game
-const picsArray = [
+const allPictures = [
     'eagle',
     'elephant',
     'cat',
@@ -38,16 +12,23 @@ const picsArray = [
     'owl',
     'turtle'
 ]
-
+ 
 let grid;
 let currentGamePics;
 let drawnMainPic;
 let revealedCards = [];
 let score = 0;
+let level = 1;
 let menuView;
 let gameView;
-
-
+ 
+ 
+let allowToClick = false;
+let selectedPic;
+let gameDuration = 5;
+let gameTimer = null;
+ 
+ 
 function initializeGame() {
     grid = document.querySelector('.grid');
     menuView = document.querySelector('.menu-view');
@@ -56,7 +37,7 @@ function initializeGame() {
     rulesModal();
     menuView.classList.add('show');
 }
-
+ 
 // Game controls
 function handleGameControls() {
     const playButton = document.querySelector('#start');
@@ -64,66 +45,95 @@ function handleGameControls() {
         menuView.classList.remove('show');
         gameView.classList.add('show');
         startGame();
-        playButton.setAttribute('disabled', true);
     });
     const cards = document.querySelectorAll('.card');
     cards.forEach((item) => {
         console.log(item);
         item.addEventListener('click', (event) => {
-            const card = event.target.closest('.card');
-            const cardValue = card && card.dataset.id;
-            card.classList.add('show');
-            // Check for matches
-            if (cardValue === drawnMainPic) {
-                setTimeout(() => {
-                    card.classList.remove('show');
-                    updateScore();
-                    startGame();
-                }, 2000);
-            } else if (cardValue !== drawnMainPic) {
-                gameOverModal('flex');
-            } else {
-                setTimeout(() => {
-                    gameOver();
-                    updateScore(0);
-                    card.classList.remove('show');
-                }, 1000);
+            if (!allowToClick || selectedPic) {
+                return;
             }
+ 
+            const card = event.target.closest('.card');
+            revealCard(card);
         })
     });
 }
-
+ 
+const wait = (timeout) => new Promise((resolve) => setTimeout(() => {
+    console.log(`The wait functions end it's work for ${timeout}s`);
+    resolve(timeout);
+}, timeout * 1000));
+ 
 // Start game
 function startGame() {
     createBoard();
-    flipTheBoard();
-    setTimeout(() => {
-        const prepareTime = 5;
-        startCountDown(prepareTime, "Prepare");
-        visibilityMainPicture();
-        setTimeout(() => {
-            flipTheBoard();
-            setTimeout(() => {
-                startCountDown(5, 'Game Time');
-                setTimeout(() => {
-                    gameOver();
-                }, 5000);
-            }, 800);
-        }, prepareTime * 1000)
-    }, 800);
-    setTimeout(randomizeMainPic, 5500);
+    flipTheBoard()
+        .then(() => startCountDown(5, "Prepare"))
+        .then(() => flipTheBoard())
+        .then(() => {
+            allowToClick = true;
+            randomizeMainPic();
+            toggleMainPicture();
+            startCountDown(gameDuration, 'Game Time');
+            gameTimer = setTimeout(() => {
+                gameOver();
+            }, gameDuration * 1000);
+        });
 }
-
+ 
+function revealCard(card) {
+    selectedPic = card && card.dataset.id;
+    if (!selectedPic) {
+        throw new Error('Game ERROR')
+    }
+ 
+    card.classList.add('show');
+    allowToClick = false;
+    wait(0.8)
+        .then(() => {
+            clearInterval(gameTimer);
+            gameTimer = null;
+            if (selectedPic === drawnMainPic) {
+                nextLevel();
+            } else {
+                gameOver();
+            }
+        })
+ 
+}
+ 
+function nextLevel() {
+    updateScore();
+    level += 1;
+    playAgain();
+}
+ 
+function playAgain(resetScore) {
+    allowToClick = false;
+    selectedPic = null;
+    document.querySelectorAll('.card.show').forEach(el => el.classList.remove('show'));
+    toggleMainPicture();
+    wait(0.8).then(() => {
+        if (resetScore) {
+            updateScore(0);
+        }
+        startGame();
+    });
+}
+ 
 // Score points
 function updateScore(value) {
     if (value === 0) {
         score = 0;
     } else {
-        score += 1;
+        const factor = 1 + Math.floor(level / 2);
+        score += factor;
     }
     document.querySelector('.score-value').innerText = score;
+    document.querySelector('#end-score').innerText = score;
 }
-
+ 
 // Random main picture
 function randomizeMainPic() {
     const previewPic = document.querySelector('img.main-pic');
@@ -131,10 +141,10 @@ function randomizeMainPic() {
     drawnMainPic = currentGamePics[randomIndex];
     previewPic.src = `assets/images/${drawnMainPic}.jpg`;
 }
-
+ 
 // Random nine pictures
 function createBoard() {
-    currentGamePics = picsArray.sort(() => 0.5 - Math.random()).slice(0, 9);
+    currentGamePics = allPictures.sort(() => 0.5 - Math.random()).slice(0, 9);
     currentGamePics.forEach((img, i) => {
         const card = document.querySelector(`.card:nth-child(${i+1})`);
         card.setAttribute('data-id', img);
@@ -142,35 +152,71 @@ function createBoard() {
         image.src = `assets/images/${img}.jpg`;
     });
 }
-
+ 
 // Flip the pic
 function flipTheBoard() {
     grid.classList.toggle('show');
+    return wait(0.8);
 }
-
+ 
 // Visibility of main picture
-function visibilityMainPicture() {
+function toggleMainPicture() {
     const mainPic = document.querySelector('.main-pic');
     mainPic.classList.toggle('visibility');
 }
-
+ 
 // Timer
 function startCountDown(timeLeft, timerText) {
-    let timer = document.querySelector('.time-value');
-    let text = document.querySelector('.timer-text');
-    text.innerText = timerText;
-    var gameTimer = setInterval(() => {
-        timeLeft--;
-        if (timeLeft <= 0) {
-            clearInterval(gameTimer);
-            timer.innerHTML = 0;
-        } else {
-            timer.innerHTML = timeLeft;
-        }
-    }, 1000)
+    return new Promise((resolve) => {
+        let timer = document.querySelector('.time-value');
+        let text = document.querySelector('.timer-text');
+        text.innerText = timerText;
+        const gameTimer = setInterval(() => {
+            timeLeft--;
+            if (timeLeft <= 0) {
+                clearInterval(gameTimer);
+                timer.innerHTML = 0;
+                resolve();
+            } else {
+                timer.innerHTML = timeLeft;
+            }
+        }, 1000);
+    });
 }
-
+ 
 // Gameover
 function gameOver() {
+    gameOverModal('flex');
     console.log('Game Over');
 }
+// Modal 
+function rulesModal() {
+    const modal = document.querySelector('#modal-rules');
+    const btn = document.querySelector('#rules');
+    const span = document.querySelector('#close-rules');
+    btn.onclick = () => modal.style.display = 'flex';
+    span.onclick = () => modal.style.display = 'none';
+    window.onclick = event => {
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
+    }
+}
+ 
+function gameOverModal(on) {
+    const modal = document.querySelector('#modal-game-over');
+    const span = document.querySelector('#close-game-over');
+    const playAgainButton = modal.querySelector('button');
+    playAgainButton.onclick = () => {
+        playAgain(true);
+        modal.style.display = 'none';
+    }
+    modal.style.display = on;
+    span.onclick = () => modal.style.display = 'none';
+    window.onclick = event => {
+        if (event.target == modal) {
+            modal.style.display = 'none'
+        }
+    }
+}
+ 
