@@ -7,12 +7,24 @@ function rulesModal() {
     btn.onclick = () => modal.style.display = 'flex';
     span.onclick = () => modal.style.display = 'none';
     window.onclick = event => {
-    if (event.target == modal) {
-        modal.style.display = 'none';
+        if (event.target == modal) {
+            modal.style.display = 'none';
+        }
     }
 }
-}
 
+function gameOverModal(on) {
+    var modal = document.querySelector('#modal-game-over');
+    var span = document.querySelector('#close-game-over');
+    modal.style.display = on;
+    span.onclick = () => modal.style.display = 'none';
+    window.onclick = event => {
+        if (event.target == modal) {
+            modal.style.display = 'none'
+        }
+        // location.reload(true);
+    }
+}
 
 // Create array with images for the game
 const picsArray = [
@@ -68,6 +80,8 @@ function handleGameControls() {
                     updateScore();
                     startGame();
                 }, 2000);
+            } else if (cardValue !== drawnMainPic) {
+                gameOverModal('flex');
             } else {
                 setTimeout(() => {
                     gameOver();
@@ -89,13 +103,13 @@ function startGame() {
         visibilityMainPicture();
         setTimeout(() => {
             flipTheBoard();
-            setTimeout(()=>{
+            setTimeout(() => {
                 startCountDown(5, 'Game Time');
-                setTimeout(() =>{
+                setTimeout(() => {
                     gameOver();
                 }, 5000);
             }, 800);
-        }, prepareTime*1000)
+        }, prepareTime * 1000)
     }, 800);
     setTimeout(randomizeMainPic, 5500);
 }

@@ -103,6 +103,9 @@ body * {
     align-items: ;
 }
 
+.large {
+    width: 260px;
+}
 
 /* Modal styling */
 .modal {
