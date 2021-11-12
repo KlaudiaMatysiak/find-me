@@ -11,7 +11,7 @@ const allPictures = [
     'horse',
     'owl',
     'turtle'
-]
+];
  
 let grid;
 let currentGamePics;
@@ -21,8 +21,7 @@ let score = 0;
 let level = 1;
 let menuView;
 let gameView;
- 
- 
+
 let allowToClick = false;
 let selectedPic;
 let gameDuration = 5;
@@ -56,7 +55,7 @@ function handleGameControls() {
  
             const card = event.target.closest('.card');
             revealCard(card);
-        })
+        });
     });
 }
  
@@ -85,9 +84,9 @@ function startGame() {
 function revealCard(card) {
     selectedPic = card && card.dataset.id;
     if (!selectedPic) {
-        throw new Error('Game ERROR')
+        throw new Error('Game ERROR');
     }
- 
+    clearInterval(gameTimer);
     card.classList.add('show');
     allowToClick = false;
     wait(0.8)
@@ -99,7 +98,7 @@ function revealCard(card) {
             } else {
                 gameOver();
             }
-        })
+        });
  
 }
  
@@ -127,8 +126,7 @@ function updateScore(value) {
     if (value === 0) {
         score = 0;
     } else {
-        const factor = 1 + Math.floor(level / 2);
-        score += factor;
+        score += 1;
     }
     document.querySelector('.score-value').innerText = score;
     document.querySelector('#end-score').innerText = score;
@@ -200,7 +198,7 @@ function rulesModal() {
         if (event.target == modal) {
             modal.style.display = 'none';
         }
-    }
+    };
 }
  
 function gameOverModal(on) {
@@ -210,13 +208,14 @@ function gameOverModal(on) {
     playAgainButton.onclick = () => {
         playAgain(true);
         modal.style.display = 'none';
-    }
+    };
     modal.style.display = on;
     span.onclick = () => modal.style.display = 'none';
     window.onclick = event => {
         if (event.target == modal) {
-            modal.style.display = 'none'
+            modal.style.display = 'none';
         }
-    }
+    };
 }
- 
+
+      
