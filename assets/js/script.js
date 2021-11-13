@@ -16,7 +16,6 @@ const allPictures = [
 let grid;
 let currentGamePics;
 let drawnMainPic;
-let revealedCards = [];
 let score = 0;
 let level = 1;
 let menuView;
@@ -24,7 +23,8 @@ let gameView;
 
 let allowToClick = false;
 let selectedPic;
-let gameDuration = 5;
+let gameDuration = 6;
+let displayTimer = null;
 let gameTimer = null;
  
  
@@ -68,7 +68,7 @@ const wait = (timeout) => new Promise((resolve) => setTimeout(() => {
 function startGame() {
     createBoard();
     flipTheBoard()
-        .then(() => startCountDown(5, "Prepare"))
+        .then(() => startCountDown(gameDuration, "Prepare"))
         .then(() => flipTheBoard())
         .then(() => {
             allowToClick = true;
@@ -76,6 +76,7 @@ function startGame() {
             toggleMainPicture();
             startCountDown(gameDuration, 'Game Time');
             gameTimer = setTimeout(() => {
+                displayTimer = null;
                 gameOver();
             }, gameDuration * 1000);
         });
@@ -93,6 +94,8 @@ function revealCard(card) {
         .then(() => {
             clearInterval(gameTimer);
             gameTimer = null;
+            clearInterval(displayTimer);
+            displayTimer = null;
             if (selectedPic === drawnMainPic) {
                 nextLevel();
             } else {
@@ -169,15 +172,18 @@ function startCountDown(timeLeft, timerText) {
         let timer = document.querySelector('.time-value');
         let text = document.querySelector('.timer-text');
         text.innerText = timerText;
-        const gameTimer = setInterval(() => {
+        displayTimer = setInterval(() => {
             timeLeft--;
             if (timeLeft <= 0) {
-                clearInterval(gameTimer);
+                clearInterval(displayTimer);
                 timer.innerHTML = 0;
                 resolve();
             } else {
                 timer.innerHTML = timeLeft;
             }
+            console.log(timer, "timer");
+            console.log(text, "text");
+            console.log(timeLeft, 'timeleft')
         }, 1000);
     });
 }
