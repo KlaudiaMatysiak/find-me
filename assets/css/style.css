@@ -58,9 +58,6 @@ body * {
     margin-bottom: 10vh;
 }
 
-.page.game-view {
-}
-
 .game-container {
     display: flex;
     flex-direction: column;
@@ -100,7 +97,6 @@ body * {
     font-family: 'Montserrat', sans-serif;
     font-size: 32px;
     letter-spacing: 1px;
-    align-items: ;
 }
 
 .large {
@@ -205,4 +201,11 @@ img.reverse,
 img.averse,
 img.main-pic {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+@media only screen and (max-width: 600px) {
+    #logo {
+        height: 120px;
+    }
+
 }
