@@ -1,11 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat:600&display=swap');
 
+:root {
+    /* Page Pallete */
+    --mainColor: #8ec8df;
+    --darkMainColor: #6199af;
+    --whiteColor: #ffffff;
+    --darkColor: #2a2f33;
+    /* Fonts */
+    --textFont: 'Mochiy Pop P One', sans-serif;
+    --buttonFont: 'Montserrat', sans-serif;
+}
+
 body {
     height: 100vh;
-    background-color: #8ec8df;
-    font-family: 'Mochiy Pop P One', sans-serif;
-    color: white;
+    background-color: var(--mainColor);
+    font-family: var(--textFont);
+    color: var(--darkColor);
     margin: 0;
 }
 
@@ -58,6 +69,19 @@ body * {
     margin-bottom: 10vh;
 }
 
+.game-stats-container {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.game-stats {
+    font-size: 24px;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+}
+
 .game-container {
     display: flex;
     flex-direction: column;
@@ -79,7 +103,7 @@ body * {
 .footer i {
     text-decoration: none;
     font-size: 36px;
-    color: white;
+    color: var(--whiteColor);
 }
 
 .button {
@@ -89,18 +113,21 @@ body * {
     height: 55px;
     border-radius: 1em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    background: #fafafa;
-    line-height: 2;
+    background: var(--whiteColor);
+    color: var(--darkMainColor);
     text-align: center;
     margin: 5px;
-    color: #8ec8df;
-    font-family: 'Montserrat', sans-serif;
+    font-family: var(--buttonFont);
     font-size: 32px;
     letter-spacing: 1px;
 }
 
-.large {
+.go-btn {
     width: 260px;
+    background: var(--mainColor);
+    color: var(--darkColor);
+    margin: 10px 20px;
+
 }
 
 /* Modal styling */
@@ -120,10 +147,17 @@ body * {
 }
 
 .modal-content {
-    background-color: #fefefe;
+    background-color: var(--whiteColor);
     padding: 20px;
     border: 1px solid #888;
-    color: #1b2d35;
+    /* color: #1b2d35; */
+}
+
+.modal-text-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .close {
@@ -140,10 +174,7 @@ body * {
     cursor: pointer;
 }
 
-.game-stats {
-    font-size: 24px;
-    padding: 5px;
-}
+
 
 .main-pic-container {
     background: url("../images/loading.gif");
