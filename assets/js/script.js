@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', initializeGame);
- 
-// Create array with images for the game
+
+// Array with images for the game
 const allPictures = [
     'eagle',
     'elephant',
@@ -12,7 +12,7 @@ const allPictures = [
     'owl',
     'turtle'
 ];
- 
+
 let grid;
 let currentGamePics;
 let drawnMainPic;
@@ -27,7 +27,6 @@ let gameDuration = 6;
 let displayTimer = null;
 let gameTimer = null;
  
- 
 function initializeGame() {
     grid = document.querySelector('.grid');
     menuView = document.querySelector('.menu-view');
@@ -36,7 +35,7 @@ function initializeGame() {
     rulesModal();
     menuView.classList.add('show');
 }
- 
+
 // Game controls
 function handleGameControls() {
     const playButton = document.querySelector('#start');
@@ -47,7 +46,6 @@ function handleGameControls() {
     });
     const cards = document.querySelectorAll('.card');
     cards.forEach((item) => {
-        console.log(item);
         item.addEventListener('click', (event) => {
             if (!allowToClick || selectedPic) {
                 return;
@@ -112,10 +110,7 @@ function nextLevel() {
 }
  
 function playAgain(resetScore) {
-    allowToClick = false;
-    selectedPic = null;
-    document.querySelectorAll('.card.show').forEach(el => el.classList.remove('show'));
-    toggleMainPicture();
+    resetGame();
     wait(0.8).then(() => {
         if (resetScore) {
             updateScore(0);
@@ -193,6 +188,15 @@ function gameOver() {
     gameOverModal('flex');
     console.log('Game Over');
 }
+
+// Reset game
+function resetGame() {
+    allowToClick = false;
+    selectedPic = null;
+    document.querySelectorAll('.card.show').forEach(el => el.classList.remove('show'));
+    toggleMainPicture();
+}
+
 // Modal 
 function rulesModal() {
     const modal = document.querySelector('#modal-rules');
@@ -209,19 +213,20 @@ function rulesModal() {
  
 function gameOverModal(on) {
     const modal = document.querySelector('#modal-game-over');
-    const span = document.querySelector('#close-game-over');
     const playAgainButton = modal.querySelector('button');
+    const mainMenuButton = modal.querySelector('#main-menu-button');
     playAgainButton.onclick = () => {
         playAgain(true);
         modal.style.display = 'none';
     };
     modal.style.display = on;
-    span.onclick = () => modal.style.display = 'none';
-    window.onclick = event => {
-        if (event.target == modal) {
-            modal.style.display = 'none';
-        }
-    };
+    mainMenuButton.onclick = () => {
+        modal.style.display = 'none';
+        gameView.classList.remove('show');
+        menuView.classList.add('show');
+        resetGame();
+    }
+
 }
 
       
