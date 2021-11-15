@@ -5,107 +5,108 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="assets/css/style.css">
-    <script src="assets/js/script.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" 
+        integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" 
+        crossorigin="anonymous" referrerpolicy="no-referrer" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css">
     <title>Find Me!</title>
 </head>
 
 <body>
-    <div class="page-content">
-        <div class="page menu-view">
-            <a href="index.html">
-                <img class="logo" alt="logo" src="assets/images/logo-white.png">
-            </a>
-            <button id="start" class="button">PLAY</button>
-            <button id="rules" class="button"><span>RULES</span></button>
-        </div>
-        <div class="page game-view">
-            <div class="game-container">
-                <a href="index.html">
-                    <img class="logo" id="logo" alt="logo" src="assets/images/logo-white.png">
-                </a>
-                <div class="game-stats-container">
-                    <div class="game-stats">
-                        <span class="timer-text">Time</span>: <span class="time-value"></span>
-                    </div>
-                    <div class="game-stats">
-                        Score: <span class="score-value">0</span>
-                    </div>
+    <nav class="page menu-view">
+        <h1 class="logo">
+            <img alt="Find me! game - to train your brain" src="assets/images/logo-white.png">
+        </h1>
+        <span class="separator"></span>
+        <button id="start" class="button">PLAY</button>
+        <button id="rules" class="button">RULES</button>
+    </nav>
+    <main class="page game-view">
+        <section class="game-container">
+            <div class="game-stats-container">
+                <div class="game-stats">
+                    <span class="timer-text">Time</span>: <span class="time-value"></span>
                 </div>
-                <div class="main-pic-container">
-                    <img class="main-pic">
-                </div>
-                <div class="grid">
-                    <div class="card">
-                        <img src="assets/images/logo-blue.png" alt="" class="reverse">
-                        <img src="" alt="" class="averse">
-                    </div>
-                    <div class="card">
-                        <img src="assets/images/logo-blue.png" alt="" class="reverse">
-                        <img src="" alt="" class="averse">
-                    </div>
-                    <div class="card">
-                        <img src="assets/images/logo-blue.png" alt="" class="reverse">
-                        <img src="" alt="" class="averse">
-                    </div>
-                    <div class="card">
-                        <img src="assets/images/logo-blue.png" alt="" class="reverse">
-                        <img src="" alt="" class="averse">
-                    </div>
-                    <div class="card">
-                        <img src="assets/images/logo-blue.png" alt="" class="reverse">
-                        <img src="" alt="" class="averse">
-                    </div>
-                    <div class="card">
-                        <img src="assets/images/logo-blue.png" alt="" class="reverse">
-                        <img src="" alt="" class="averse">
-                    </div>
-                    <div class="card">
-                        <img src="assets/images/logo-blue.png" alt="" class="reverse">
-                        <img src="" alt="" class="averse">
-                    </div>
-                    <div class="card">
-                        <img src="assets/images/logo-blue.png" alt="" class="reverse">
-                        <img src="" alt="" class="averse">
-                    </div>
-                    <div class="card">
-                        <img src="assets/images/logo-blue.png" alt="" class="reverse">
-                        <img src="" alt="" class="averse">
-                    </div>
+                <div class="game-stats">
+                    Score: <span class="score-value">0</span>
                 </div>
             </div>
-        </div>
-        <div id="modal-rules" class="modal">
-            <div class="modal-content">
-                <span id="close-rules" class="close">&times;</span>
-                <h1>Rules of the <span class="find-me">Find Me!</span> Game</h1>
-                <p>1. You have 5 seconds to remember pictures on the board.</p>
-                <p>2. Then you have 5 second to find matching picture on the board to the one above.</p>
-                <p>3. If you ran out of time then the game is over.</p>
-                <p>4. For every match you gain 1 point.</p>
+            <figure class="main-pic-container">
+                <img class="main-pic">
+            </figure>
+            <div class="grid">
+                <figure class="card">
+                    <img src="assets/images/logo-blue.png" alt="" class="reverse">
+                    <img src="" alt="" class="averse">
+                </figure>
+                <figure class="card">
+                    <img src="assets/images/logo-blue.png" alt="" class="reverse">
+                    <img src="" alt="" class="averse">
+                </figure>
+                <figure class="card">
+                    <img src="assets/images/logo-blue.png" alt="" class="reverse">
+                    <img src="" alt="" class="averse">
+                </figure>
+                <figure class="card">
+                    <img src="assets/images/logo-blue.png" alt="" class="reverse">
+                    <img src="" alt="" class="averse">
+                </figure>
+                <figure class="card">
+                    <img src="assets/images/logo-blue.png" alt="" class="reverse">
+                    <img src="" alt="" class="averse">
+                </figure>
+                <figure class="card">
+                    <img src="assets/images/logo-blue.png" alt="" class="reverse">
+                    <img src="" alt="" class="averse">
+                </figure>
+                <figure class="card">
+                    <img src="assets/images/logo-blue.png" alt="" class="reverse">
+                    <img src="" alt="" class="averse">
+                </figure>
+                <figure class="card">
+                    <img src="assets/images/logo-blue.png" alt="" class="reverse">
+                    <img src="" alt="" class="averse">
+                </figure>
+                <figure class="card">
+                    <img src="assets/images/logo-blue.png" alt="" class="reverse">
+                    <img src="" alt="" class="averse">
+                </figure>
             </div>
-        </div>
-        <div id="modal-game-over" class="modal">
-            <div class="modal-content">
-                <div class="modal-text-content">
-                    <h2>GAME OVER</h2>
-                    <p>You lost the game.</p>
-                    <p>Your score was <span id="end-score">0</span></p>
-                    <button class="button go-btn" id="play-again-button">PLAY AGAIN</button>
-                    <button class="button go-btn" id="main-menu-button">MAIN MENU</button>
-                </div>
+        </section>
+    </main>
+    <div id="modal-game-over" class="modal">
+        <div class="modal-content">
+            <div class="modal-text-content">
+                <h2>GAME OVER</h2>
+                <p>You lost the game.</p>
+                <p>Your score was <span id="end-score">0</span></p>
+                <button class="button" id="play-again-button">PLAY AGAIN</button>
+                <button class="button" id="main-menu-button">MAIN MENU</button>
             </div>
         </div>
     </div>
+    <div id="modal-rules" class="modal">
+        <div class="modal-content">
+            <span id="close-rules" class="close">&times;</span>
+            <h1>Rules of the <span class="find-me">Find Me!</span> Game</h1>
+            <p>1. You have 5 seconds to remember pictures on the board.</p>
+            <p>2. Then you have 5 second to find matching picture on the board to the one above.</p>
+            <p>3. If you run out of time then the game is over.</p>
+            <p>4. For every match you gain 1 point.</p>
+        </div>
+    </div>
     <footer class="footer">
-        <a href="https://www.linkedin.com/in/klaudia-matysiak-99617a223/" target="_blank" rel="noopener"
-            aria-label="linkedIn"><i class="fab fa-linkedin"></i></a>
-        <a href="https://github.com/KlaudiaMatysiak" target="_blank" rel="noopener" aria-label="Github"><i
-                class="fab fa-github"></i></a>
-        <a href="http://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><i
-                class="fab fa-instagram ig"></i></a>
+        <a href="https://www.linkedin.com/in/klaudia-matysiak-99617a223/" target="_blank" rel="noopener" aria-label="linkedIn">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/KlaudiaMatysiak" target="_blank" rel="noopener" aria-label="Github">
+            <i class="fab fa-github"></i>
+        </a>
+        <a href="http://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram">
+            <i class="fab fa-instagram"></i>
+        </a>
     </footer>
+    <script src="assets/js/script.js"></script>
 </body>
 
 </html>
