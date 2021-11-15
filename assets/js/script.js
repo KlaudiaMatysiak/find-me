@@ -1,3 +1,4 @@
+/* jshint esversion: 8 */
 document.addEventListener('DOMContentLoaded', initializeGame);
 
 // Array with images for the game
@@ -56,11 +57,13 @@ function handleGameControls() {
         });
     });
 }
- 
-const wait = (timeout) => new Promise((resolve) => setTimeout(() => {
-    console.log(`The wait functions end it's work for ${timeout}s`);
-    resolve(timeout);
-}, timeout * 1000));
+
+// Promise wrapper for setTimeout
+const wait = (timeout) => new Promise((resolve) => {
+    setTimeout(() => {
+        resolve(timeout);
+    }, timeout * 1000);
+});
  
 // Start game
 function startGame() {
@@ -102,13 +105,15 @@ function revealCard(card) {
         });
  
 }
- 
+
+// Next level
 function nextLevel() {
     updateScore();
     level += 1;
     playAgain();
 }
  
+// New game after another
 function playAgain(resetScore) {
     resetGame();
     wait(0.8).then(() => {
@@ -197,15 +202,20 @@ function resetGame() {
     toggleMainPicture();
 }
 
-// Modal 
+// Modals
 function rulesModal() {
     const modal = document.querySelector('#modal-rules');
     const btn = document.querySelector('#rules');
     const span = document.querySelector('#close-rules');
-    btn.onclick = () => modal.style.display = 'flex';
+    console.log('modal', modal);
+    btn.onclick = event => {
+        modal.style.display = 'flex';
+        console.log('button click', event);
+    } 
     span.onclick = () => modal.style.display = 'none';
     window.onclick = event => {
-        if (event.target == modal) {
+        console.log('window click', event);
+        if (modal.style.display === 'flex' && event.target == modal) {
             modal.style.display = 'none';
         }
     };
@@ -213,7 +223,7 @@ function rulesModal() {
  
 function gameOverModal(on) {
     const modal = document.querySelector('#modal-game-over');
-    const playAgainButton = modal.querySelector('button');
+    const playAgainButton = modal.querySelector('#play-again-button');
     const mainMenuButton = modal.querySelector('#main-menu-button');
     playAgainButton.onclick = () => {
         playAgain(true);
