@@ -225,7 +225,7 @@ body * {
     object-fit: cover;
 }
 
-.card .averse {
+.card .card-front {
     transform: rotateY(180deg);
     backface-visibility: hidden;
 }
@@ -235,8 +235,8 @@ body * {
     transform: rotateY(180deg);
 }
 
-img.reverse,
-img.averse,
+img.card-back,
+img.card-front,
 img.main-pic {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }

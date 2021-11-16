@@ -149,7 +149,7 @@ function createBoard() {
     currentGamePics.forEach((img, i) => {
         const card = document.querySelector(`.card:nth-child(${i+1})`);
         card.setAttribute('data-id', img);
-        const image = card.querySelector(`img.averse`);
+        const image = card.querySelector(`img.card-front`);
         image.src = `assets/images/${img}.jpg`;
     });
 }
