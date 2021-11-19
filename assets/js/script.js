@@ -37,6 +37,8 @@ function initializeGame() {
     grid = document.querySelector('.grid');
     menuView = document.querySelector('.menu-view');
     gameView = document.querySelector('.game-view');
+    nicknameInInput();
+    initialScore();
     handleGameControls();
     rulesModal();
     menuView.classList.add('show');
@@ -46,9 +48,10 @@ function initializeGame() {
 function handleGameControls() {
     const playButton = document.querySelector('#start');
     playButton.addEventListener('click', () => {
-        menuView.classList.remove('show');
-        gameView.classList.add('show');
-        startGame();
+        if (startGame()) {
+            menuView.classList.remove('show');
+            gameView.classList.add('show');
+        }
     });
     const cards = document.querySelectorAll('.card');
     cards.forEach((item) => {
@@ -72,10 +75,13 @@ const wait = (timeout) => new Promise((resolve) => {
  
 // Start game
 function startGame() {
-    setNickname();
+    if (!setNickname()) {
+        alert('Please enter your nickname to start the game!');
+        return false;
+    }
     createBoard();
     flipTheBoard()
-        .then(() => startCountDown(gameDuration, "Prepare"))
+        .then(() => startCountDown(gameDuration, "Memorize Time"))
         .then(() => flipTheBoard())
         .then(() => {
             allowToClick = true;
@@ -87,6 +93,7 @@ function startGame() {
                 gameOver();
             }, gameDuration * 1000);
         });
+    return true;
 }
  
 function revealCard(card) {
@@ -191,18 +198,72 @@ function updateScore(value) {
    document.querySelector('#end-score').innerText = score;
 }
 
+// Local Storage
 function setNickname() {
     const input = document.querySelector('#nickname');
     nickname = input.value;
     LS.setItem(nicknameKey, nickname);
     const user = document.querySelector('#user');
     user.innerText = nickname;
+    return nickname;
+}
+
+function initialScore() {
+    readData();
+    generateRaport();
+}
+
+function readData() {
+    const data = LS[scoreKey];
+    if (data) {
+        scoreBoardList = JSON.parse(data);
+    }
+}
+
+function saveData() {
+    LS[scoreKey] = JSON.stringify(scoreBoardList);
+}
+
+function generateRaport() {
+    const ol = document.querySelector('#score-list');
+    ol.innerText = '';
+    scoreBoardList.slice(0,10).forEach(({nickname, score, date}) => {
+        const li = document.createElement('li');
+        li.innerText = `${nickname} --- ${score} --- ${date}`;
+        ol.appendChild(li);
+    })
+}
+
+function saveScore() {
+    if (score === 0) {
+        return
+    }
+    const newScore = {
+        score: score,
+        nickname: nickname,
+        date: (new Date()).toLocaleDateString(),
+    };
+    scoreBoardList.push(newScore);
+    scoreBoardList.sort((a,b) => b.score - a.score);
+    generateRaport();
+    saveData();
+}
+
+function nicknameInInput() {
+    nickname = localStorage.getItem(nicknameKey);
+    const input = document.querySelector('#nickname');
+    if (nickname == null) {
+        return
+    } else {
+        input.setAttribute('value', nickname);
+    };
 }
 
 // Gameover
 function gameOver() {
     gameOverModal('flex');
     console.log('Game Over');
+    saveScore();
 }
 
 // Reset game
@@ -248,5 +309,3 @@ function gameOverModal(on) {
     }
 
 }
-
-      
