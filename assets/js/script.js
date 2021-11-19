@@ -14,6 +14,7 @@ const allPictures = [
     'turtle'
 ];
 
+// Global variables
 let grid;
 let currentGamePics;
 let drawnMainPic;
@@ -21,12 +22,16 @@ let score = 0;
 let level = 1;
 let menuView;
 let gameView;
-
 let allowToClick = false;
 let selectedPic;
 let gameDuration = 6;
 let displayTimer = null;
 let gameTimer = null;
+let nickname;
+let scoreBoardList = [];
+const scoreKey = 'FindMe!Score';
+const nicknameKey = 'FindMe!User';
+const LS = window.localStorage;
  
 function initializeGame() {
     grid = document.querySelector('.grid');
@@ -67,6 +72,7 @@ const wait = (timeout) => new Promise((resolve) => {
  
 // Start game
 function startGame() {
+    setNickname();
     createBoard();
     flipTheBoard()
         .then(() => startCountDown(gameDuration, "Prepare"))
@@ -123,18 +129,7 @@ function playAgain(resetScore) {
         startGame();
     });
 }
- 
-// Score points
-function updateScore(value) {
-    if (value === 0) {
-        score = 0;
-    } else {
-        score += 1;
-    }
-    document.querySelector('.score-value').innerText = score;
-    document.querySelector('#end-score').innerText = score;
-}
- 
+
 // Random main picture
 function randomizeMainPic() {
     const previewPic = document.querySelector('img.main-pic');
@@ -142,7 +137,7 @@ function randomizeMainPic() {
     drawnMainPic = currentGamePics[randomIndex];
     previewPic.src = `assets/images/${drawnMainPic}.jpg`;
 }
- 
+
 // Random nine pictures
 function createBoard() {
     currentGamePics = allPictures.sort(() => 0.5 - Math.random()).slice(0, 9);
@@ -153,19 +148,19 @@ function createBoard() {
         image.src = `assets/images/${img}.jpg`;
     });
 }
- 
+
 // Flip the pic
 function flipTheBoard() {
     grid.classList.toggle('show');
     return wait(0.8);
 }
- 
+
 // Visibility of main picture
 function toggleMainPicture() {
     const mainPic = document.querySelector('.main-pic');
     mainPic.classList.toggle('visibility');
 }
- 
+
 // Timer
 function startCountDown(timeLeft, timerText) {
     return new Promise((resolve) => {
@@ -181,13 +176,29 @@ function startCountDown(timeLeft, timerText) {
             } else {
                 timer.innerHTML = timeLeft;
             }
-            console.log(timer, "timer");
-            console.log(text, "text");
-            console.log(timeLeft, 'timeleft')
         }, 1000);
     });
 }
- 
+
+// Score points
+function updateScore(value) {
+   if (value === 0) {
+       score = 0;
+   } else {
+       score += 1;
+   }
+   document.querySelector('.score-value').innerText = score;
+   document.querySelector('#end-score').innerText = score;
+}
+
+function setNickname() {
+    const input = document.querySelector('#nickname');
+    nickname = input.value;
+    LS.setItem(nicknameKey, nickname);
+    const user = document.querySelector('#user');
+    user.innerText = nickname;
+}
+
 // Gameover
 function gameOver() {
     gameOverModal('flex');
@@ -207,7 +218,6 @@ function rulesModal() {
     const modal = document.querySelector('#modal-rules');
     const btn = document.querySelector('#rules');
     const span = document.querySelector('#close-rules');
-    console.log('modal', modal);
     btn.onclick = event => {
         modal.style.display = 'flex';
         console.log('button click', event);

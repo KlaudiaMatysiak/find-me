@@ -18,6 +18,9 @@
             <img alt="Find me! game - to train your brain" src="assets/images/logo-white.png">
         </h1>
         <span class="separator"></span>
+        <form>
+            <input class="name-input" id="nickname" type="text" placeholder="nickname">
+        </form>
         <button id="start" class="button">PLAY</button>
         <button id="rules" class="button">RULES</button>
     </nav>
@@ -28,7 +31,7 @@
             </figure>
             <div class="game-stats-container">
                 <div class="game-stats">
-                    <span class="timer-text">Time</span>: <span class="time-value"></span>
+                    <span class="timer-text">Time</span>: <span class="time-value">0</span>
                 </div>
                 <div class="game-stats">
                     Score: <span class="score-value">0</span>
@@ -78,7 +81,7 @@
         <div class="modal-content">
             <div class="modal-text-content">
                 <h1>Congratulations!</h1>
-                <p>You reached score <span id="end-score">0</span></p>
+                <p><span id="user">You</span> reached score <span id="end-score">0</span></p>
                 <p>Keep going! Train your brain.</p>
                 <button class="button" id="play-again-button">PLAY AGAIN</button>
                 <button class="button" id="main-menu-button">MAIN MENU</button>
