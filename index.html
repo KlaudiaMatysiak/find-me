@@ -23,6 +23,9 @@
     </nav>
     <main class="page game-view">
         <section class="game-container">
+            <figure class="main-pic-container">
+                <img class="main-pic">
+            </figure>
             <div class="game-stats-container">
                 <div class="game-stats">
                     <span class="timer-text">Time</span>: <span class="time-value"></span>
@@ -31,44 +34,41 @@
                     Score: <span class="score-value">0</span>
                 </div>
             </div>
-            <figure class="main-pic-container">
-                <img class="main-pic">
-            </figure>
             <div class="grid">
                 <figure class="card">
-                    <img src="assets/images/logo-blue.png" alt="" class="card-back">
+                    <img src="assets/images/logo-blue.png" alt="Fine Me! game logo" class="card-back">
                     <img src="" alt="" class="card-front">
                 </figure>
                 <figure class="card">
-                    <img src="assets/images/logo-blue.png" alt="" class="card-back">
+                    <img src="assets/images/logo-blue.png" alt="Fine Me! game logo" class="card-back">
                     <img src="" alt="" class="card-front">
                 </figure>
                 <figure class="card">
-                    <img src="assets/images/logo-blue.png" alt="" class="card-back">
+                    <img src="assets/images/logo-blue.png" alt="Fine Me! game logo" class="card-back">
                     <img src="" alt="" class="card-front">
                 </figure>
                 <figure class="card">
-                    <img src="assets/images/logo-blue.png" alt="" class="card-back">
+                    <img src="assets/images/logo-blue.png" alt="Fine Me! game logo" class="card-back">
                     <img src="" alt="" class="card-front">
                 </figure>
                 <figure class="card">
-                    <img src="assets/images/logo-blue.png" alt="" class="card-back">
+                    <img src="assets/images/logo-blue.png" alt="Fine Me! game logo" class="card-back">
                     <img src="" alt="" class="card-front">
                 </figure>
                 <figure class="card">
-                    <img src="assets/images/logo-blue.png" alt="" class="card-back">
+                    <img src="assets/images/logo-blue.png" alt="Fine Me! game logo" class="card-back">
                     <img src="" alt="" class="card-front">
                 </figure>
                 <figure class="card">
-                    <img src="assets/images/logo-blue.png" alt="" class="card-back">
+                    <img src="assets/images/logo-blue.png" alt="Fine Me! game logo" class="card-back">
                     <img src="" alt="" class="card-front">
                 </figure>
                 <figure class="card">
-                    <img src="assets/images/logo-blue.png" alt="" class="card-back">
+                    <img src="assets/images/logo-blue.png" alt="Fine Me! game logo" class="card-back">
                     <img src="" alt="" class="card-front">
                 </figure>
                 <figure class="card">
-                    <img src="assets/images/logo-blue.png" alt="" class="card-back">
+                    <img src="assets/images/logo-blue.png" alt="Fine Me! game logo" class="card-back">
                     <img src="" alt="" class="card-front">
                 </figure>
             </div>
@@ -77,9 +77,9 @@
     <div id="modal-game-over" class="modal">
         <div class="modal-content">
             <div class="modal-text-content">
-                <h2>GAME OVER</h2>
-                <p>You lost the game.</p>
-                <p>Your score was <span id="end-score">0</span></p>
+                <h1>Congratulations!</h1>
+                <p>You reached score <span id="end-score">0</span></p>
+                <p>Keep going! Train your brain.</p>
                 <button class="button" id="play-again-button">PLAY AGAIN</button>
                 <button class="button" id="main-menu-button">MAIN MENU</button>
             </div>
@@ -88,11 +88,15 @@
     <div id="modal-rules" class="modal">
         <div class="modal-content">
             <span id="close-rules" class="close">&times;</span>
-            <h1>Rules of the <span class="find-me">Find Me!</span> Game</h1>
-            <p>1. You have 5 seconds to remember pictures on the board.</p>
-            <p>2. Then you have 5 second to find matching picture on the board to the one above.</p>
-            <p>3. If you run out of time then the game is over.</p>
-            <p>4. For every match you gain 1 point.</p>
+            <h1>Find me! game - to train your brain</h1>
+            <p>The purpose of the game is to have fun with memorizing pictures as much as possible!</p>
+            <p>There is no loosing or winning per se, the biggest win is to train your memory muscle.</p>
+            <h2>Rules</h2>
+            <p><i class="fas fa-circle"></i> You have 5 seconds to remember pictures on the board.</p>
+            <p><i class="fas fa-circle"></i> Then you have 5 second to find match.</p>
+            <p><i class="fas fa-circle"></i> If you run out of time then the game is over.</p>
+            <p><i class="fas fa-circle"></i> For every match you gain 1 point.</p>
+            <p><i class="fas fa-circle"></i> Levels are endless.</p>
         </div>
     </div>
     <footer class="footer">
