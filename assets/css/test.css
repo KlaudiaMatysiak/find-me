@@ -1,0 +1,399 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v8.3.6,
+* Autoprefixer: v10.3.1
+* Browsers: last 4 version
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Montserrat:wght@300;400;500;700&display=swap');
+
+:root {
+    /* Page Pallete */
+    --mainColor: #6199af;
+    --whiteColor: #ffffff;
+    --darkColor: #363636;
+    /* Layout */
+    --footerHeight: 50px;
+    --gameWidth: 340px;
+
+}
+/* General */
+body {
+    position: relative;
+    min-height: 100vh;
+    background-color: var(--mainColor);
+    font-family: 'Montserrat', sans-serif;;
+    color: var(--darkColor);
+    padding-bottom: var(--footerHeight);
+}
+
+body,
+body * {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+    margin: 0;
+}
+
+/* Page styling */
+.page {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+    width: var(--gameWidth);
+    height: calc(100% - var(--footerHeight));
+    opacity: 0;
+    -webkit-filter: blur(10px);
+            filter: blur(10px);
+    -webkit-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    pointer-events: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.page.show {
+    opacity: 1;
+    -webkit-filter: blur(0px);
+            filter: blur(0px);
+    pointer-events: initial;
+}
+
+/* Home/Menu page styling */
+.page.menu-view {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.menu-view .logo {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 1 200px;
+            flex: 0 1 200px;
+    overflow: hidden;
+    min-height: 100px;
+}
+
+.menu-view .logo img {
+    display: block;
+    width: auto;
+    height: auto;
+    max-height: 100%;
+}
+
+.menu-view .separator {
+    -webkit-box-flex: 0;
+        -ms-flex: 0 2 10%;
+            flex: 0 2 10%;
+    width: 100%;
+}
+
+.name-input {
+    border: 0;
+    border-radius: 2em;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 5px;
+    height: 40px;
+    width: 180px;
+    text-align: center;
+    font-size: 18px;
+}
+
+.button {
+    display: block;
+    border: 0;
+    width: 180px;
+    height: 55px;
+    border-radius: 1em;
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: var(--whiteColor);
+    color: var(--mainColor);
+    text-align: center;
+    margin: 5px;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+
+.menu-view .button {
+    margin: 15px 0;
+    -webkit-box-flex: 0;
+        -ms-flex: 0 0 55px;
+            flex: 0 0 55px;
+}
+
+/* Game page styling */
+.game-stats-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+}
+
+.game-stats {
+    font-size: 24px;
+    color: var(--whiteColor);
+    padding: 5px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+}
+
+.game-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 100%;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+}
+
+.main-pic-container {
+    background: url("../images/loading.gif");
+    background-size: cover;
+    min-height: 80px;
+}
+
+.main-pic {
+    display: block;
+    opacity: 0;
+    -webkit-transition: opacity 0.3s ease-in-out;
+    -o-transition: opacity 0.3s ease-in-out;
+    transition: opacity 0.3s ease-in-out;
+    width: 100px;
+    height: 100px;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+.main-pic.visibility {
+    opacity: 1;
+}
+
+.grid {
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: auto 5px auto 5px auto;
+    grid-template-columns: repeat(3, auto);
+    grid-gap: 5px;
+}
+
+.card {
+    position: relative;
+    width: 100px;
+    height: 100px;
+    -webkit-transform-style: preserve-3d;
+            transform-style: preserve-3d;
+    display: block;
+    -webkit-transition: -webkit-transform 0.8s ease-in-out;
+    transition: -webkit-transform 0.8s ease-in-out;
+    -o-transition: transform 0.8s ease-in-out;
+    transition: transform 0.8s ease-in-out;
+    transition: transform 0.8s ease-in-out, -webkit-transform 0.8s ease-in-out;
+}
+
+.card img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+}
+
+.card .card-front {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+}
+
+.grid.show .card, 
+.card.show {
+    -webkit-transform: rotateY(180deg);
+            transform: rotateY(180deg);
+}
+
+img.card-back,
+img.card-front,
+img.main-pic {
+    -webkit-box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer styling */
+.footer {
+    height: var(--footerHeight);
+    max-width: var(--gameWidth);
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: space-evenly;
+        -ms-flex-pack: space-evenly;
+            justify-content: space-evenly;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+        -ms-transform: translateX(-50%);
+            transform: translateX(-50%);
+}
+
+.footer i {
+    text-decoration: none;
+    font-size: 36px;
+    color: var(--whiteColor);
+}
+
+/* Modal styling */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 2;
+    padding: 20px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.modal-content {
+    background-color: var(--whiteColor);
+    padding: 20px;
+    border: 1px solid #888;
+}
+
+.modal-text-content {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+}
+
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.modal .button {
+    background: var(--mainColor);
+    color: var(--whiteColor);
+    margin: 25px 20px 0;
+    height: 40px;
+    font-size: 18px;
+}
+
+#modal-rules p {
+    font-size: 16px;
+    margin: 5px;
+}
+
+#modal-rules h2 {
+    margin: 10px 0;
+}
+
+/* Resposive desgin */
+@media only screen and (min-height: 960px) {
+    .main-pic {
+        width: 150px;
+        height: 150px;
+    }
+
+    .card {
+        width: 150px;
+        height: 150px;
+    }
+
+    .game-stats {
+        font-size: 32px;
+    }
+
+    :root {
+    --gameWidth: 480px;
+    }
+}
+
+@media only screen and (max-height: 580px) {
+    .main-pic {
+        width: 80px;
+        height: 80px;
+    }
+
+    .card {
+        width: 80px;
+        height: 80px;
+    }
+
+    .game-stats {
+        font-size: 18px;
+    }
+
+    :root {
+    --gameWidth: 270px;
+    }
+}
