@@ -69,7 +69,7 @@ View live project [here](https://klaudiamatysiak.github.io/find-me/)
 |:---:|:---:|
 |[alpaca](https://pixabay.com/photos/alpaca-smile-teeth-fur-funny-farm-985158/)|Richard Smith|
 |[bird](https://pixabay.com/photos/bird-robin-spring-flowers-perched-2295436/)|Jill Wellington|
-|[cat](https://pixabay.com/photos/white-cat-kitten-beautiful-home-4557097/)|Daga_Roszkowska|
+|[cat](https://pixabay.com/photos/cat-bury-cat-brindle-domestic-cat-3062885/)|Daga_Roszkowska|
 |[chameleon](https://pixabay.com/photos/chameleon-reptile-lizard-green-540655/)|Frank Winkler|
 |[corgi](https://pixabay.com/photos/dog-corgi-cute-animal-4988985/)|Lucio Liu|
 |[dachshund](https://pixabay.com/photos/puppy-dog-dachshund-brown-tongue-3698728/)|Lauren Rathbone|
@@ -88,7 +88,7 @@ View live project [here](https://klaudiamatysiak.github.io/find-me/)
 |[jellyfish](https://pixabay.com/photos/jellyfish-underwater-ocean-aquarium-6653502/)|Eddie K|
 |[koala](https://pixabay.com/photos/koala-animal-animals-nature-pouch-2914975/)|Annick Vanblaere|
 |[ladybugs](https://pixabay.com/photos/ladybugs-insects-pair-1593406/)|Ron van den Berg|
-|[lizard](https://pixabay.com/photos/caiman-lizard-lizard-reptile-animal-6632344/)|Catherine Read |
+|[lizard](https://pixabay.com/photos/lizard-reptile-animal-creature-653645/)|Foto-RaBe|
 |[mandrill](https://pixabay.com/photos/mandrill-animal-monkey-zoo-face-5076687/)|wei zhu|
 |[owl](https://pixabay.com/photos/owl-bird-animal-bird-of-prey-50267/)|Chräcker Heller|
 |[parrot](https://pixabay.com/photos/parrot-yellow-macaw-bird-perched-3601194/)|IlonaF|
@@ -98,7 +98,7 @@ View live project [here](https://klaudiamatysiak.github.io/find-me/)
 |[samoyed](https://pixabay.com/photos/dog-samoyed-run-doggy-cute-spitz-5449489/)|Nikol|
 |[spider](https://pixabay.com/photos/spider-zebra-spider-arachnid-564685/)|Inactive account – ID 631372|
 |[squirrel](https://pixabay.com/photos/snow-animal-squirrel-rodent-mammal-17854/)|PublicDomainPictures|
-|[swan](https://pixabay.com/photos/swan-water-white-water-bird-nature-2107052/)|S. Hermann & F. Richter|
+|[swan](https://pixabay.com/photos/love-family-swan-family-young-swans-5192377/)|S. Hermann & F. Richter|
 |[turtle](https://pixabay.com/photos/sea-turtle-diving-animal-2361247/)|Inactive account – ID 12019|
 |[zebra](https://pixabay.com/photos/animal-zebra-wild-wild-life-africa-4917802/)|Alp Cem|
 
