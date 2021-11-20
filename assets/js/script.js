@@ -3,15 +3,40 @@ document.addEventListener('DOMContentLoaded', initializeGame);
 
 // Array with images for the game
 const allPictures = [
+    'alpaca',
+    'bird',
+    'cat',
+    'chameleon',
+    'corgi',
+    'dachshund',
+    'dog',
+    'dolphin',
     'eagle',
     'elephant',
-    'cat',
-    'dog',
+    'flamingos',
     'fox',
+    'frog',
+    'giraffe',
     'hedgehog',
+    'highland-cattle',
     'horse',
+    'impala',
+    'jellyfish',
+    'koala',
+    'ladybugs',
+    'lizard',
+    'mandrill',
     'owl',
-    'turtle'
+    'parrot',
+    'ragdoll',
+    'rat',
+    'red-panda',
+    'samoyed',
+    'spider',
+    'squirrel',
+    'swan',
+    'turtle',
+    'zebra',
 ];
 
 // Global variables
