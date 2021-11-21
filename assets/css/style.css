@@ -266,6 +266,23 @@ img.main-pic {
 #modal-rules h2 {
     margin: 10px 0;
 }
+#modal-game-over h2 {
+    margin: 5px;
+}
+#modal-game-over p {
+    margin: 5px;
+}
+.score-list-wrapper {
+    background-image:linear-gradient(#c09c6c, #c5a578, #d6bb92);
+    background-size: cover;
+}
+.score-list-wrapper h2 {
+    text-align: center;
+    margin-top: 10px;
+}
+.score-list-wrapper ol {
+    margin: 10px;
+}
 
 /* Resposive desgin */
 @media only screen and (min-height: 960px) {
