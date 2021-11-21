@@ -287,9 +287,13 @@ function nicknameInInput() {
 
 // Gameover
 function gameOver() {
-    gameOverModal('flex');
-    console.log('Game Over');
+    allowToClick = false;
     saveScore();
+    const wantedCard = document.querySelector(`.card[data-id*="${drawnMainPic}"]`);
+    wantedCard.classList.add('show');
+    wait(2).then(() => {
+        gameOverModal('flex');
+    });
 }
 
 // Reset game
