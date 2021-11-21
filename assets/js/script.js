@@ -49,7 +49,7 @@ let menuView;
 let gameView;
 let allowToClick = false;
 let selectedPic;
-let gameDuration = 6;
+let gameDuration = 5;
 let displayTimer = null;
 let gameTimer = null;
 let nickname;
@@ -199,6 +199,7 @@ function startCountDown(timeLeft, timerText) {
         let timer = document.querySelector('.time-value');
         let text = document.querySelector('.timer-text');
         text.innerText = timerText;
+        timer.innerText = timeLeft;
         displayTimer = setInterval(() => {
             timeLeft--;
             if (timeLeft <= 0) {
