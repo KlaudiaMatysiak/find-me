@@ -22,6 +22,7 @@
             <input class="name-input" id="nickname" type="text" placeholder="nickname">
         </form>
         <button id="start" class="button">PLAY</button>
+        <button id="scores" class="button">SCORES</button>
         <button id="rules" class="button">RULES</button>
     </nav>
     <main class="page game-view">
@@ -80,24 +81,25 @@
     <div id="modal-game-over" class="modal">
         <div class="modal-content">
             <div class="modal-text-content">
-                <h2>Congratulations <span id="user"></span> !</h2>
-                <p>You reached score <span id="end-score"></span></p>
-                <p>Keep going! Train your brain.</p>
-                <div class="score-list-wrapper">
-                    <span class="separator"></span>
-                    <h2>Scores List</h2>
-                    <ol id="score-list">
-    
-                    </ol>
-                </div>
+                <h2 id="game-over-header">Congratulations</h2>
+                <p>Your score was <span id="end-score">0</span></p>
                 <button class="button" id="play-again-button">PLAY AGAIN</button>
                 <button class="button" id="main-menu-button">MAIN MENU</button>
             </div>
         </div>
     </div>
+    <div id="modal-scores" class="modal">
+        <div class="modal-content">
+            <span class="close"><i class="fas fa-times-circle"></i></span>
+            <h2>Scores Board</h2>
+            <ol id="score-list" class="score-list">
+
+            </ol>
+        </div>
+    </div>
     <div id="modal-rules" class="modal">
         <div class="modal-content">
-            <span id="close-rules" class="close">&times;</span>
+            <span class="close"><i class="fas fa-times-circle"></i></span>
             <h1>Find me! game - to train your brain</h1>
             <p>The purpose of the game is to have fun with memorizing pictures as much as possible!</p>
             <p>There is no loosing or winning per se, the biggest win is to train your memory muscle.</p>
