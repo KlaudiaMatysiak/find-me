@@ -59,13 +59,15 @@ const nicknameKey = 'FindMe!User';
 const LS = window.localStorage;
  
 function initializeGame() {
+    scoresModal = handleModal('#modal-scores', '#scores');
+    rulesModal = handleModal('#modal-rules', '#rules');
+    gameOverModal = handleGameOverModal();
     grid = document.querySelector('.grid');
     menuView = document.querySelector('.menu-view');
     gameView = document.querySelector('.game-view');
     nicknameInInput();
     initialScore();
     handleGameControls();
-    rulesModal();
     menuView.classList.add('show');
 }
 
@@ -229,8 +231,6 @@ function setNickname() {
     const input = document.querySelector('#nickname');
     nickname = input.value;
     LS.setItem(nicknameKey, nickname);
-    const user = document.querySelector('#user');
-    user.innerText = nickname;
     return nickname;
 }
 
@@ -292,7 +292,7 @@ function gameOver() {
     const wantedCard = document.querySelector(`.card[data-id*="${drawnMainPic}"]`);
     wantedCard.classList.add('show');
     wait(2).then(() => {
-        gameOverModal('flex');
+        gameOverModal.show();
     });
 }
 
@@ -304,38 +304,66 @@ function resetGame() {
     toggleMainPicture();
 }
 
-// Modals
-function rulesModal() {
-    const modal = document.querySelector('#modal-rules');
-    const btn = document.querySelector('#rules');
-    const span = document.querySelector('#close-rules');
-    btn.onclick = event => {
+// Modals handler for scores and rules modals
+function handleModal(modalName, triggerName) {
+    const modal = document.querySelector(modalName);
+    const trigger = document.querySelector(triggerName);
+    const close = modal.querySelector('.close');
+
+    const showModal = () => {
         modal.style.display = 'flex';
-        console.log('button click', event);
-    } 
-    span.onclick = () => modal.style.display = 'none';
-    window.onclick = event => {
-        console.log('window click', event);
-        if (modal.style.display === 'flex' && event.target == modal) {
-            modal.style.display = 'none';
+        window.addEventListener('click', onWindowClick);
+    };
+    const hideModal = () => {
+        modal.style.display = 'none';
+        window.removeEventListener('click', onWindowClick);
+    };
+    const onWindowClick = event => {
+        if (event.target === modal) {
+            hideModal();
         }
     };
+
+    if (trigger) {
+        trigger.addEventListener('click', showModal);
+    }
+
+    if (close) {
+        close.addEventListener('click', hideModal);
+    }
+
+    return {
+        show: showModal,
+        hide: hideModal,
+    };
 }
- 
-function gameOverModal(on) {
+
+// Modal handler for game over modal
+function handleGameOverModal() {
     const modal = document.querySelector('#modal-game-over');
     const playAgainButton = modal.querySelector('#play-again-button');
     const mainMenuButton = modal.querySelector('#main-menu-button');
-    playAgainButton.onclick = () => {
-        playAgain(true);
+
+    const showModal = () => {
+        modal.style.display = 'flex';
+    };
+    const hideModal = () => {
         modal.style.display = 'none';
     };
-    modal.style.display = on;
-    mainMenuButton.onclick = () => {
-        modal.style.display = 'none';
+    const onPlayAgainClick = () => {
+        playAgain(true);
+        hideModal();
+    };
+    const onMainMenuClick = () => {
+        hideModal();
+        updateScore(0);
         gameView.classList.remove('show');
         menuView.classList.add('show');
         resetGame();
-    }
-
+    };
+    playAgainButton.addEventListener('click', onPlayAgainClick);
+    mainMenuButton.addEventListener('click', onMainMenuClick);
+    return {
+        show: showModal,
+    };
 }
