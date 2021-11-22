@@ -99,7 +99,8 @@ body * {
     letter-spacing: 1px;
 }
 
-.menu-view .button {
+.menu-view .button,
+.menu-view .name-input {
     margin: 15px 0;
     flex: 0 0 55px;
 }
