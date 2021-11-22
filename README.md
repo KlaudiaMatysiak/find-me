@@ -1,4 +1,5 @@
 # Find Me! Game
+![Responsive Design](documentation/images/mockup.png)
 Find Me! Game is memory type of game, I would say it's [Dark Souls](https://www.quora.com/What-makes-the-Dark-Souls-series-so-hard) of the memory games. What makes The Find Me game so hard? There is no place for a mistake and it's time limited. The player has only 5 seconds to remember the board and then have 5 seconds to find a match. There is no winning or loosing per se, but you're earning points for every match and you keep the score on the score list, so you can beat your own score or play local with a friends. The main purpose of the game is to train you memory muscle, and to have fun of course!
 
 View live project [here](https://klaudiamatysiak.github.io/find-me/)
@@ -57,10 +58,13 @@ View live project [here](https://klaudiamatysiak.github.io/find-me/)
 
 ## HTML
 * The [W3C School Validator](https://validator.w3.org/) were used to validate the HTML code on the project.
+![HTML Validator](documentation/images/html-validator.png)
 ## CSS
 * The [W3C School CSS Validator](https://jigsaw.w3.org/css-validator/validator.html.en) were used to validate CSS code on the project.
+![CSS Validator](documentation/images/css-validator.png)
 ## JavaScript
 * The [JSHint Validator](https://jshint.com/) were used to validate JS code on the project.
+![JSHint Validator](documentation/images/js-validator.png)
 ## Lighthouse DevTools
 
 # Credits
