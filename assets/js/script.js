@@ -102,8 +102,13 @@ const wait = (timeout) => new Promise((resolve) => {
  
 // Start game
 function startGame() {
-    if (!setNickname()) {
+    const userName = setNickname();
+    if (!userName) {
         alert('Please enter your nickname to start the game!');
+        return false;
+    }
+    if (userName.length > 15) {
+        alert('Nickname length can not be longer then 15 characters!');
         return false;
     }
     createBoard();
