@@ -301,6 +301,36 @@ function gameOver() {
     wait(2).then(() => {
         gameOverModal.show();
     });
+    const modalheader = document.querySelector('#game-over-header');
+    if (score === 0) {
+        modalheader.innerText = randomizeMotivateText();
+    } else {
+        modalheader.innerText = randomizePositiveText();
+    }
+}
+
+// Random sentences
+function randomizePositiveText() {
+    const array = [
+        'Well done!',
+        'Good job!',
+        'Proud of you',
+        'Nicly done',
+        'You rock!',
+    ];
+    const randomIndex = Math.floor(Math.random() * array.length);
+    return array[randomIndex];
+}
+
+function randomizeMotivateText() {
+    const array = [
+        'You can do better!',
+        'Don\'t give up!',
+        'Don\'t stress',
+        'Stay positive!',
+    ];
+    const randomIndex = Math.floor(Math.random() * array.length);
+    return array[randomIndex];
 }
 
 // Reset game
