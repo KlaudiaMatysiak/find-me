@@ -118,7 +118,7 @@ function startGame() {
         return false;
     }
     if (userName.length > 12) {
-        warningModal.show('Warning!', 'Nickname length can not be longer than 12 characters!');
+        warningModal.show('Warning!', 'Nickname length can not exceed 12 characters!');
 
         return false;
     }
