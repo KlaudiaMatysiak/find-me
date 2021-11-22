@@ -54,10 +54,14 @@ let displayTimer = null;
 let gameTimer = null;
 let nickname;
 let scoreBoardList = [];
+let scoresModal;
+let rulesModal;
+let gameOverModal;
 const scoreKey = 'FindMe!Score';
 const nicknameKey = 'FindMe!User';
 const LS = window.localStorage;
- 
+
+// Initial code to start page
 function initializeGame() {
     scoresModal = handleModal('#modal-scores', '#scores');
     rulesModal = handleModal('#modal-rules', '#rules');
@@ -84,6 +88,7 @@ function handleGameControls() {
     cards.forEach((item) => {
         item.addEventListener('click', (event) => {
             if (!allowToClick || selectedPic) {
+                
                 return;
             }
  
@@ -105,10 +110,12 @@ function startGame() {
     const userName = setNickname();
     if (!userName) {
         alert('Please enter your nickname to start the game!');
+
         return false;
     }
     if (userName.length > 15) {
         alert('Nickname length can not be longer then 15 characters!');
+
         return false;
     }
     createBoard();
@@ -125,23 +132,24 @@ function startGame() {
                 gameOver();
             }, gameDuration * 1000);
         });
+
     return true;
 }
- 
+
+// Show and match selected card
 function revealCard(card) {
     selectedPic = card && card.dataset.id;
     if (!selectedPic) {
         throw new Error('Game ERROR');
     }
     clearInterval(gameTimer);
+    clearInterval(displayTimer);
+    gameTimer = null;
+    displayTimer = null;
     card.classList.add('show');
     allowToClick = false;
     wait(0.8)
         .then(() => {
-            clearInterval(gameTimer);
-            gameTimer = null;
-            clearInterval(displayTimer);
-            displayTimer = null;
             if (selectedPic === drawnMainPic) {
                 nextLevel();
             } else {
@@ -158,7 +166,7 @@ function nextLevel() {
     playAgain();
 }
  
-// New game after another
+// Play game again
 function playAgain(resetScore) {
     resetGame();
     wait(0.8).then(() => {
@@ -177,7 +185,7 @@ function randomizeMainPic() {
     previewPic.src = `assets/images/${drawnMainPic}.jpg`;
 }
 
-// Random nine pictures
+// Random pictures to make a board
 function createBoard() {
     currentGamePics = allPictures.sort(() => 0.5 - Math.random()).slice(0, 9);
     currentGamePics.forEach((img, i) => {
@@ -188,13 +196,14 @@ function createBoard() {
     });
 }
 
-// Flip the pic
+// Flipping cards
 function flipTheBoard() {
     grid.classList.toggle('show');
+
     return wait(0.8);
 }
 
-// Visibility of main picture
+// Visibility of the main picture
 function toggleMainPicture() {
     const mainPic = document.querySelector('.main-pic');
     mainPic.classList.toggle('visibility');
@@ -205,8 +214,10 @@ function startCountDown(timeLeft, timerText) {
     return new Promise((resolve) => {
         let timer = document.querySelector('.time-value');
         let text = document.querySelector('.timer-text');
+
         text.innerText = timerText;
         timer.innerText = timeLeft;
+        
         displayTimer = setInterval(() => {
             timeLeft--;
             if (timeLeft <= 0) {
@@ -227,25 +238,30 @@ function updateScore(value) {
    } else {
        score += 1;
    }
+
    document.querySelector('.score-value').innerText = score;
    document.querySelector('#end-score').innerText = score;
 }
 
-// Local Storage
+// Save nickname in Local Storage
 function setNickname() {
     const input = document.querySelector('#nickname');
     const playerElements = document.querySelectorAll('.player');
+
     nickname = input.value;
     LS.setItem(nicknameKey, nickname);
     playerElements.forEach((item) => item.innerText = nickname);
+
     return nickname;
 }
 
+// Read score board from Local Storage
 function initialScore() {
     readData();
-    generateRaport();
+    generateReport();
 }
 
+// Read data from Local Storage
 function readData() {
     const data = LS[scoreKey];
     if (data) {
@@ -253,11 +269,13 @@ function readData() {
     }
 }
 
+// Save data in Local Storage
 function saveData() {
     LS[scoreKey] = JSON.stringify(scoreBoardList);
 }
 
-function generateRaport() {
+// Generate score list
+function generateReport() {
     const ol = document.querySelector('#score-list');
     ol.innerText = '';
     scoreBoardList.slice(0,10).forEach(({nickname, score, date}) => {
@@ -267,8 +285,10 @@ function generateRaport() {
     })
 }
 
+// Save data if score > 0
 function saveScore() {
     if (score === 0) {
+
         return
     }
     const newScore = {
@@ -276,12 +296,14 @@ function saveScore() {
         nickname: nickname,
         date: (new Date()).toLocaleDateString(),
     };
+    
     scoreBoardList.push(newScore);
     scoreBoardList.sort((a,b) => b.score - a.score);
-    generateRaport();
+    generateReport();
     saveData();
 }
 
+// Save input value from latest input
 function nicknameInInput() {
     nickname = localStorage.getItem(nicknameKey);
     const input = document.querySelector('#nickname');
@@ -319,6 +341,7 @@ function randomizePositiveText() {
         'You rock!',
     ];
     const randomIndex = Math.floor(Math.random() * array.length);
+
     return array[randomIndex];
 }
 
@@ -330,6 +353,7 @@ function randomizeMotivateText() {
         'Stay positive!',
     ];
     const randomIndex = Math.floor(Math.random() * array.length);
+
     return array[randomIndex];
 }
 
@@ -398,8 +422,10 @@ function handleGameOverModal() {
         menuView.classList.add('show');
         resetGame();
     };
+
     playAgainButton.addEventListener('click', onPlayAgainClick);
     mainMenuButton.addEventListener('click', onMainMenuClick);
+
     return {
         show: showModal,
     };

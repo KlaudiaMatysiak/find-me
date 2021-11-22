@@ -26,7 +26,7 @@ body * {
     margin: 0;
 }
 
-/* Page styling */
+/* General page styling */
 .page {
     position: absolute;
     top: 0;
@@ -45,6 +45,21 @@ body * {
     opacity: 1;
     filter: blur(0px);
     pointer-events: initial;
+}
+
+.button {
+    display: block;
+    border: 0;
+    width: 180px;
+    height: 55px;
+    border-radius: 1em;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    background: var(--whiteColor);
+    color: var(--mainColor);
+    text-align: center;
+    margin: 5px;
+    font-size: 32px;
+    letter-spacing: 1px;
 }
 
 /* Home/Menu page styling */
@@ -82,21 +97,6 @@ body * {
     width: 180px;
     text-align: center;
     font-size: 18px;
-}
-
-.button {
-    display: block;
-    border: 0;
-    width: 180px;
-    height: 55px;
-    border-radius: 1em;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-    background: var(--whiteColor);
-    color: var(--mainColor);
-    text-align: center;
-    margin: 5px;
-    font-size: 32px;
-    letter-spacing: 1px;
 }
 
 .menu-view .button,
@@ -263,31 +263,21 @@ img.main-pic {
     font-size: 18px;
 }
 
+.modal h2 {
+    margin: 10px 0;
+}
+
+/* Styling for rules modal */
 #modal-rules p {
     font-size: 16px;
     margin: 5px;
 }
 
+/* Styling for game over modal */
 #modal-game-over .modal-content {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-.modal h2 {
-    margin: 10px 0;
-}
-
-.score-list-container {
-    margin: 20px;
-}
-
-.modal .button {
-    background: var(--mainColor);
-    color: var(--whiteColor);
-    margin: 25px 20px 0;
-    height: 40px;
-    font-size: 18px;
 }
 
 /* Styling for scores modal */
