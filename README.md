@@ -6,16 +6,18 @@ View live project [here](https://klaudiamatysiak.github.io/find-me/)
 
 # User Experience (UX)
 ## User Stories
-* First Time Visitors Goals
-    1. As a First Time Visitor, I want to easly navigate through the game to find content and understand main purpose of it.
-    2. As a First Time Visitor, I want to start play the game and have a fun.
-    3. As a First Time Visitor, I want to know how much score I've reached.
-* Returning Visitors Goals
-    1. As a Returning Visitors, I want to see previous scores and try to beat it.
++ First Time Visitors Goals
+    + As a First Time Visitor, I want to easly navigate through the game to find content and understand main purpose of it.
+    + As a First Time Visitor, I want to start play the game and have a fun.
+    + As a First Time Visitor, I want to know how much score I've reached.
++ Returning Visitors Goals
+    + As a Returning Visitors, I want to see previous scores and try to beat it.
 
 ## Design
 ![Palette](documentation/images/palette.png)
+
 [Direct link to the palette](https://coolors.co/6199af-ffffff-585858-b5dae9)
+
 I've choosen Air Superiority Blue and White colors for main layout colors. Text is either white or Davys Grey depends of the background color. Lighy Blue color is only use for styling score board list.
 
 ## Wireframes
@@ -24,7 +26,6 @@ My vision was to have very similar version of the layout game for mobile and des
 Full PDF file with wireframes you can find [here](documentation/files/wireframes.pdf)
 * Mobile view ![Mobile Wireframe](documentation/images/mobile-wireframes.png)
 * Desktop view ![Desktop Wireframe](documentation/images/desktop-wireframes.png)
-
 
 # Features
 ## Home Page
@@ -35,6 +36,9 @@ Full PDF file with wireframes you can find [here](documentation/files/wireframes
 ![Nickname Input](documentation/images/nickname-input.png)
 ### Menu
 ![Menu](documentation/images/menu.png)
+
+---
+
 ## Game Page
 ![Gameplay View](documentation/images/gameplay.png)
 ### Game Header
@@ -47,6 +51,9 @@ Full PDF file with wireframes you can find [here](documentation/files/wireframes
 ![Game stats](documentation/images/game-stats1.png) ![Game stats](documentation/images/game-stats2.png)
 ### Pictures Board
 ![Pictures Board](documentation/images/pictures-board-front.png) ![Pictures Board](documentation/images/pictures-board-back.png)
+
+---
+
 ## Modals
 ### Warnings Modals
 ![Warning](documentation/images/warning1.png) ![Warning](documentation/images/warning2.png)
@@ -56,52 +63,35 @@ Full PDF file with wireframes you can find [here](documentation/files/wireframes
 ![Rules](documentation/images/rules.png)
 ### Game Over Modal
 ![Game Over](documentation/images/gameover.png)
+
+---
+
 ## Footer
 ![Footer](documentation/images/footer.png)
 
 # Technologies Used
-* HTML5
-* CSS3
-* JavaScript
-* [Font Awesome](https://fontawesome.com/)
-* [Google Fonts](https://fonts.google.com/)
-* [CSS root variables](https://css-tricks.com/breaking-css-custom-properties-out-of-root-might-be-a-good-idea/)
-* [Flex Box](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
-* [Custom List Numbers](https://css-tricks.com/custom-list-number-styling/)
-* [JavaScript Local Storage](https://blog.logrocket.com/localstorage-javascript-complete-guide/)
-* [Balsamiq](https://balsamiq.com/)
++ Languages
+    + HTML5
+    + CSS3
+    + JavaScript
+* [Font Awesome](https://fontawesome.com/) - The icons for social media, points for rules and exit arrow were taken from Font Awesome.
+* [favicon](favicon.io) - Favicon was used to create site's favicon.
+* [Google Fonts](https://fonts.google.com/) - The font was imported from Google Fonts. This site uses 'Montserrat' font.
+* [CSS root variables](https://css-tricks.com/breaking-css-custom-properties-out-of-root-might-be-a-good-idea/) - CSS root variables was used to store global styling in it.
+* [Flex Box](https://css-tricks.com/snippets/css/a-guide-to-flexbox/) - Flex Box was used throuout web page to style all elements and keep responsivnes at the same time.
+* [Custom List Numbers](https://css-tricks.com/custom-list-number-styling/) - Custom List Number styling was used to make creative styling for score list.
+* [JavaScript Local Storage ](https://blog.logrocket.com/localstorage-javascript-complete-guide/) - Local Storage was used to save player's nickname and player's score, and read data to create score list.
+* [Balsamiq](https://balsamiq.com/) - Balsamiq was used to make Desktop and Mobile Wireframes.
+* [Git](https://git-scm.com/) - Git was used for version control and saving work in the repository, using the GitPod extension in Google Chrome to commit to GitHub.
+* [Am I Responsive?](http://ami.responsivedesign.is/#) - Website used to create mockup image for this README file.
+* [Autoprefixer](https://autoprefixer.github.io/) - Autoprefixer was used to add necessary prefixes to ensure site styling remains consistent.
 
 # Testing
-## Testing User Stories from User Experience
-### First Time Visitor Goals
-1. As a First Time Visitor, I want to easly navigate through the game to find content and understand main purpose of it.
-- When enter the website for the first time I can easly navigate through the menu. It's clear and intuitive. I can easily find out purpose and rules of the game by clicking "Rules" button.
-2. As a First Time Visitor, I want to start play the game and have fun.
-- I can easily start the game by giving a nickname and clicking "Start" button. If I forgot put a nickname it comes up alert that I need to do that to start the game. While playing the game I do have fun and my memory is getting better.
-3. As a First Time Visitor, I want to know how much score I've reached.
-- After each finished game I know how much score I earned.
-
-### Returning Visitors Goals
-1. As a Returning Visitors, I want to beat previous scores.
-- As I came back later I can try to beat my previous scores, but it's not an easy task.
-2. As a Returning Visitors, I want to keep training my brain.
-- After several games I'm training my brain. Sometimes it's better, sometimes it's not but I'm keeping up.
-3. As a Returning Visitors, I want to have fun.
-- I do have a lot of fun!
-
-## HTML
-* The [W3C School Validator](https://validator.w3.org/) were used to validate the HTML code on the project.
-![HTML Validator](documentation/images/html-validator.png)
-## CSS
-* The [W3C School CSS Validator](https://jigsaw.w3.org/css-validator/validator.html.en) were used to validate CSS code on the project.
-![CSS Validator](documentation/images/css-validator.png)
-## JavaScript
-* The [JSHint Validator](https://jshint.com/) were used to validate JS code on the project.
-![JSHint Validator](documentation/images/js-validator.png)
-## Lighthouse DevTools
+* The testing section is in a separate file, [here](TESTING.md).
 
 # Deployment
 
+## Github Pages
 The site was deployed to GitHub pages. The steps to deploy are as follows: 
   - In the [GitHub repository](https://github.com/KlaudiaMatysiak/find-me), navigate to the Settings tab 
   - From the source section drop-down menu, select the **Main** Branch, then click "Save".
@@ -109,7 +99,7 @@ The site was deployed to GitHub pages. The steps to deploy are as follows:
 
 The live link can be found [here](https://klaudiamatysiak.github.io/find-me)
 
-## Local Deployment
+### Local Deployment
 
 In order to make a local copy of this project, you can clone it. In your IDE Terminal, type the following command to clone my repository:
 
@@ -118,6 +108,9 @@ In order to make a local copy of this project, you can clone it. In your IDE Ter
 Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
 
 [![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/KlaudiaMatysiak/find-me)
+
+## The Web Storage API - Local Storage
+The Web Storage API provides mechanisms by which browsers can store key/value pairs. Used the Web Storage mechanism is Local Storage to save and read data that is used on the page. User does not need to take any action to have it, as it's build-in function in web browser.
 
 # Credits
 ## Images
