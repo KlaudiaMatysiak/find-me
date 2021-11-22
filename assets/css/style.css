@@ -235,13 +235,6 @@ img.main-pic {
     border: 1px solid #888;
 }
 
-.modal-text-content {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-
 .close {
     color: #aaaaaa;
     float: right;
@@ -269,25 +262,78 @@ img.main-pic {
     margin: 5px;
 }
 
-#modal-rules h2 {
+.modal h2 {
     margin: 10px 0;
 }
-#modal-game-over h2 {
-    margin: 5px;
+
+.score-list-container {
+    margin: 20px;
 }
-#modal-game-over p {
-    margin: 5px;
+
+.modal .button {
+    background: var(--mainColor);
+    color: var(--whiteColor);
+    margin: 25px 20px 0;
+    height: 40px;
+    font-size: 18px;
 }
-.score-list-wrapper {
-    background-image:linear-gradient(#c09c6c, #c5a578, #d6bb92);
-    background-size: cover;
+
+/* Styling for scores modal */
+.score-list {
+    padding-left: 0;
+    list-style: none;
+    counter-reset: scoreboard;
 }
-.score-list-wrapper h2 {
-    text-align: center;
-    margin-top: 10px;
+
+.score-list li {
+    position: relative;
+    padding: 15px 15px 10px 40px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    counter-increment: scoreboard;
+    overflow: hidden;
+    z-index: 0;
 }
-.score-list-wrapper ol {
-    margin: 10px;
+
+.score-list li:nth-child(2n) {
+    background: #b5dae9;
+}
+
+.score-list li:before {
+    content: counter(scoreboard)'.';
+    position: absolute;
+    right: 100%;
+    transform: translateX(100%) rotateZ(-20deg);
+    bottom: -10px;
+    line-height: 1;
+    font-size: 60px;
+    color: #b5dae9;
+    z-index: -1;
+    width: 60px;
+}
+
+.score-list li:nth-child(2n):before {
+    color: white;
+}
+
+.score-list .score {
+    font-weight: 500;
+}
+
+.score-list .score:after {
+    content: ' pts';
+}
+
+.score-list .score[data-score="1"]::after {
+    content: ' pt';
+}
+
+.score-list .date {
+    display: block;
+    flex: 0 0 100%;
+    font-size: 12px;
+    color: #464646;
 }
 
 /* Resposive desgin */
