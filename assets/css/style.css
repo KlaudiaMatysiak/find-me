@@ -281,6 +281,10 @@ img.main-pic {
 }
 
 /* Styling for scores modal */
+#modal-scores .modal-content {
+    min-width: 260px;
+}
+
 .score-list {
     padding-left: 0;
     list-style: none;
