@@ -7,28 +7,57 @@ View live project [here](https://klaudiamatysiak.github.io/find-me/)
 # User Experience (UX)
 ## User Stories
 * First Time Visitors Goals
-1. As a First Time Visitor, I want to easly navigate through the game to find content and understand main purpose of it.
-2. As a First Time Visitor, I want to start play the game and have fun.
-3. As a First Time Visitor, I want to know how much score I've reached.
+    1. As a First Time Visitor, I want to easly navigate through the game to find content and understand main purpose of it.
+    2. As a First Time Visitor, I want to start play the game and have a fun.
+    3. As a First Time Visitor, I want to know how much score I've reached.
 * Returning Visitors Goals
-1. As a Returning Visitors, I want to beat previous scores.
-2. As a Returning Visitors, I want to keep training my brain.
-3. As a Returning Visitors, I want to have fun.
+    1. As a Returning Visitors, I want to see previous scores and try to beat it.
 
 ## Design
+![Palette](documentation/images/palette.png)
+[Direct link to the palette](https://coolors.co/6199af-ffffff-585858-b5dae9)
+I've choosen Air Superiority Blue and White colors for main layout colors. Text is either white or Davys Grey depends of the background color. Lighy Blue color is only use for styling score board list.
 
 ## Wireframes
+I created wireframes in the balsamiq program as first visual concept of the website.
+My vision was to have very similar version of the layout game for mobile and desktop view.
+Full PDF file with wireframes you can find [here](documentation/files/wireframes.pdf)
+* Mobile view ![Mobile Wireframe](documentation/images/mobile-wireframes.png)
+* Desktop view ![Desktop Wireframe](documentation/images/desktop-wireframes.png)
 
-## Updates from original wireframes
 
 # Features
-## Main Page
+## Home Page
+![Home Page](documentation/images/home-page.png)
 ### Logo
+![Logo](documentation/images/logo.png)
 ### Player's name input
+![Nickname Input](documentation/images/nickname-input.png)
 ### Menu
+![Menu](documentation/images/menu.png)
 ## Game Page
+![Gameplay View](documentation/images/gameplay.png)
+### Game Header
+![Game Header](documentation/images/game-header.png)
+### Exit Icon
+![Exit Icon](documentation/images/exit.png)
+### Main Picture
+![Main Picture](documentation/images/main-pic-back.png) ![Main Picture](documentation/images/main-pic-front.png)
+### Game stats - Time and Score
+![Game stats](documentation/images/game-stats1.png) ![Game stats](documentation/images/game-stats2.png)
+### Pictures Board
+![Pictures Board](documentation/images/pictures-board-front.png) ![Pictures Board](documentation/images/pictures-board-back.png)
 ## Modals
+### Warnings Modals
+![Warning](documentation/images/warning1.png) ![Warning](documentation/images/warning2.png)
+### Score List Modal
+![Score List Empty](documentation/images/score-list-empty.png) ![Score List](documentation/images/score-list.png)
+### Rules Modal
+![Rules](documentation/images/rules.png)
+### Game Over Modal
+![Game Over](documentation/images/gameover.png)
 ## Footer
+![Footer](documentation/images/footer.png)
 
 # Technologies Used
 * HTML5
@@ -36,6 +65,10 @@ View live project [here](https://klaudiamatysiak.github.io/find-me/)
 * JavaScript
 * [Font Awesome](https://fontawesome.com/)
 * [Google Fonts](https://fonts.google.com/)
+* [CSS root variables](https://css-tricks.com/breaking-css-custom-properties-out-of-root-might-be-a-good-idea/)
+* [Flex Box](https://css-tricks.com/snippets/css/a-guide-to-flexbox/)
+* [Custom List Numbers](https://css-tricks.com/custom-list-number-styling/)
+* [JavaScript Local Storage](https://blog.logrocket.com/localstorage-javascript-complete-guide/)
 * [Balsamiq](https://balsamiq.com/)
 
 # Testing
@@ -66,6 +99,25 @@ View live project [here](https://klaudiamatysiak.github.io/find-me/)
 * The [JSHint Validator](https://jshint.com/) were used to validate JS code on the project.
 ![JSHint Validator](documentation/images/js-validator.png)
 ## Lighthouse DevTools
+
+# Deployment
+
+The site was deployed to GitHub pages. The steps to deploy are as follows: 
+  - In the [GitHub repository](https://github.com/KlaudiaMatysiak/find-me), navigate to the Settings tab 
+  - From the source section drop-down menu, select the **Main** Branch, then click "Save".
+  - The page will be automatically refreshed with a detailed ribbon display to indicate the successful deployment.
+
+The live link can be found [here](https://klaudiamatysiak.github.io/find-me)
+
+## Local Deployment
+
+In order to make a local copy of this project, you can clone it. In your IDE Terminal, type the following command to clone my repository:
+
+- `git clone https://github.com/KlaudiaMatysiak/find-me.git`
+
+Alternatively, if using Gitpod, you can click below to create your own workspace using this repository.
+
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/KlaudiaMatysiak/find-me)
 
 # Credits
 ## Images
