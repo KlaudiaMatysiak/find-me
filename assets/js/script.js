@@ -347,7 +347,8 @@ function saveScore() {
         nickname: nickname,
         date: (new Date()).toLocaleDateString(),
     };
-    
+    const p = document.querySelector('#score-board-text');
+    p.style.display = 'none'; 
     scoreBoardList.push(newScore);
     scoreBoardList.sort((a,b) => b.score - a.score);
     generateReport();
