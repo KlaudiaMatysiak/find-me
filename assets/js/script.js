@@ -243,6 +243,57 @@ function updateScore(value) {
    document.querySelector('#end-score').innerText = score;
 }
 
+// Gameover
+function gameOver() {
+    allowToClick = false;
+    saveScore();
+    const wantedCard = document.querySelector(`.card[data-id*="${drawnMainPic}"]`);
+    wantedCard.classList.add('show');
+    wait(2).then(() => {
+        gameOverModal.show();
+    });
+    const modalheader = document.querySelector('#game-over-header');
+    if (score === 0) {
+        modalheader.innerText = randomizeMotivateText();
+    } else {
+        modalheader.innerText = randomizePositiveText();
+    }
+}
+
+// Random sentences
+function randomizePositiveText() {
+    const array = [
+        'Well done!',
+        'Good job!',
+        'Proud of you',
+        'Nicly done',
+        'You rock!',
+    ];
+    const randomIndex = Math.floor(Math.random() * array.length);
+
+    return array[randomIndex];
+}
+
+function randomizeMotivateText() {
+    const array = [
+        'You can do better!',
+        'Don\'t give up!',
+        'Don\'t stress',
+        'Stay positive!',
+    ];
+    const randomIndex = Math.floor(Math.random() * array.length);
+
+    return array[randomIndex];
+}
+
+// Reset game
+function resetGame() {
+    allowToClick = false;
+    selectedPic = null;
+    document.querySelectorAll('.card.show').forEach(el => el.classList.remove('show'));
+    toggleMainPicture();
+}
+
 // Save nickname in Local Storage
 function setNickname() {
     const input = document.querySelector('#nickname');
@@ -312,57 +363,6 @@ function nicknameInInput() {
     } else {
         input.setAttribute('value', nickname);
     };
-}
-
-// Gameover
-function gameOver() {
-    allowToClick = false;
-    saveScore();
-    const wantedCard = document.querySelector(`.card[data-id*="${drawnMainPic}"]`);
-    wantedCard.classList.add('show');
-    wait(2).then(() => {
-        gameOverModal.show();
-    });
-    const modalheader = document.querySelector('#game-over-header');
-    if (score === 0) {
-        modalheader.innerText = randomizeMotivateText();
-    } else {
-        modalheader.innerText = randomizePositiveText();
-    }
-}
-
-// Random sentences
-function randomizePositiveText() {
-    const array = [
-        'Well done!',
-        'Good job!',
-        'Proud of you',
-        'Nicly done',
-        'You rock!',
-    ];
-    const randomIndex = Math.floor(Math.random() * array.length);
-
-    return array[randomIndex];
-}
-
-function randomizeMotivateText() {
-    const array = [
-        'You can do better!',
-        'Don\'t give up!',
-        'Don\'t stress',
-        'Stay positive!',
-    ];
-    const randomIndex = Math.floor(Math.random() * array.length);
-
-    return array[randomIndex];
-}
-
-// Reset game
-function resetGame() {
-    allowToClick = false;
-    selectedPic = null;
-    document.querySelectorAll('.card.show').forEach(el => el.classList.remove('show'));
-    toggleMainPicture();
 }
 
 // Modals handler for scores and rules modals
