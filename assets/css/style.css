@@ -8,14 +8,14 @@
     /* Layout */
     --footerHeight: 50px;
     --gameWidth: 340px;
-
 }
+
 /* General */
 body {
     position: relative;
     min-height: 100vh;
     background-color: var(--mainColor);
-    font-family: 'Montserrat', sans-serif;;
+    font-family: 'Montserrat', sans-serif;
     color: var(--darkColor);
     padding-bottom: var(--footerHeight);
 }
@@ -109,6 +109,16 @@ body * {
 .game-header {
     font-size: 18px;
     color: var(--whiteColor);
+    display: flex;
+    align-items: center;
+}
+
+.game-header > * {
+    margin: 0 5px;
+}
+
+.game-header i {
+    font-size: 24px;
 }
 
 .game-stats-container {
@@ -164,7 +174,7 @@ body * {
     height: 100px;
     transform-style: preserve-3d;
     display: block;
-    transition: transform 0.8s ease-in-out;
+    transition: all 0.8s ease-in-out;
 }
 
 .card img {
@@ -190,6 +200,10 @@ body * {
 .grid.show .card, 
 .card.show {
     transform: rotateY(180deg);
+}
+
+.card.clicked {
+    box-shadow: 0 0 15px 3px white;
 }
 
 img.card-back,
@@ -306,7 +320,7 @@ img.main-pic {
     background: #b5dae9;
 }
 
-.score-list li:before {
+.score-list li::before {
     content: counter(scoreboard)'.';
     position: absolute;
     right: 100%;
@@ -319,7 +333,7 @@ img.main-pic {
     width: 60px;
 }
 
-.score-list li:nth-child(2n):before {
+.score-list li:nth-child(2n)::before {
     color: white;
 }
 
@@ -327,7 +341,7 @@ img.main-pic {
     font-weight: 500;
 }
 
-.score-list .score:after {
+.score-list .score::after {
     content: ' pts';
 }
 
@@ -348,6 +362,10 @@ img.main-pic {
         font-size: 24px;
     }
 
+    .game-header i {
+        font-size: 36px;
+    }
+
     .main-pic {
         width: 150px;
         height: 150px;
@@ -363,13 +381,17 @@ img.main-pic {
     }
 
     :root {
-    --gameWidth: 480px;
+        --gameWidth: 480px;
     }
 }
 
 @media only screen and (max-height: 580px) {
     .game-header {
         font-size: 14px;
+    }
+
+    .game-header i {
+        font-size: 18px;
     }
 
     .main-pic {
@@ -387,6 +409,6 @@ img.main-pic {
     }
 
     :root {
-    --gameWidth: 270px;
+        --gameWidth: 270px;
     }
 }
