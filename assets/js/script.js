@@ -57,12 +57,15 @@ let scoreBoardList = [];
 let scoresModal;
 let rulesModal;
 let gameOverModal;
+let warningModal;
+let mainPicture;
 const scoreKey = 'FindMe!Score';
 const nicknameKey = 'FindMe!User';
 const LS = window.localStorage;
 
 // Initial code to start page
 function initializeGame() {
+    warningModal = handleModal('#modal-default');
     scoresModal = handleModal('#modal-scores', '#scores');
     rulesModal = handleModal('#modal-rules', '#rules');
     gameOverModal = handleGameOverModal();
@@ -108,13 +111,12 @@ const wait = (timeout) => new Promise((resolve) => {
 // Start game
 function startGame() {
     const userName = setNickname();
-    if (!userName) {
-        alert('Please enter your nickname to start the game!');
-
+    if (!userName ) {
+        warningModal.show('Warning!', 'Please enter your nickname to start the game!');
         return false;
     }
     if (userName.length > 15) {
-        alert('Nickname length can not be longer then 15 characters!');
+        warningModal.show('Warning!', 'Nickname length can not be longer then 15 characters!');
 
         return false;
     }
@@ -371,8 +373,16 @@ function handleModal(modalName, triggerName) {
     const modal = document.querySelector(modalName);
     const trigger = document.querySelector(triggerName);
     const close = modal.querySelector('.close');
+    const title = modal.querySelector('.title');
+    const content = modal.querySelector('.content');
 
-    const showModal = () => {
+    const showModal = (titleText, contentText) => {
+        if (typeof titleText === 'string' && title) {
+            title.innerText = titleText;
+        }
+        if (typeof contentText === 'string' && content) {
+            content.innerText = contentText;
+        }
         modal.style.display = 'flex';
         window.addEventListener('click', onWindowClick);
     };
