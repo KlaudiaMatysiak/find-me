@@ -66,7 +66,7 @@ const LS = window.localStorage;
 // Initial code to start page
 function initializeGame() {
     warningModal = handleModal('#modal-default');
-    scoresModal = handleModal('#modal-scores', '#scores');
+    scoresModal = handleModal('#modal-scores', '#scores', checkScoreListLength);
     rulesModal = handleModal('#modal-rules', '#rules');
     gameOverModal = handleGameOverModal();
     grid = document.querySelector('.grid');
@@ -74,6 +74,7 @@ function initializeGame() {
     gameView = document.querySelector('.game-view');
     nicknameInInput();
     initialScore();
+    checkScoreListLength();
     handleGameControls();
     menuView.classList.add('show');
 }
@@ -368,8 +369,18 @@ function nicknameInInput() {
     };
 }
 
+// Check score list information
+function checkScoreListLength() {
+    const p = document.querySelector('#score-board-text');
+    if (scoreBoardList.length) {
+        p.style.display = 'none'; 
+    } else {
+        p.style.display = 'block';
+    }
+}
+
 // Modals handler for scores and rules modals
-function handleModal(modalName, triggerName) {
+function handleModal(modalName, triggerName, onShowCallback) {
     const modal = document.querySelector(modalName);
     const trigger = document.querySelector(triggerName);
     const close = modal.querySelector('.close');
@@ -382,6 +393,9 @@ function handleModal(modalName, triggerName) {
         }
         if (typeof contentText === 'string' && content) {
             content.innerText = contentText;
+        }
+        if (onShowCallback) {
+            onShowCallback();
         }
         modal.style.display = 'flex';
         window.addEventListener('click', onWindowClick);
