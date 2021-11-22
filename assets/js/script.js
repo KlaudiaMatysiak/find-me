@@ -234,8 +234,10 @@ function updateScore(value) {
 // Local Storage
 function setNickname() {
     const input = document.querySelector('#nickname');
+    const playerElements = document.querySelectorAll('.player');
     nickname = input.value;
     LS.setItem(nicknameKey, nickname);
+    playerElements.forEach((item) => item.innerText = nickname);
     return nickname;
 }
 
