@@ -24,49 +24,113 @@ I've choosen Air Superiority Blue and White colors for main layout colors. Text 
 I created wireframes in the balsamiq program as first visual concept of the website.
 My vision was to have very similar version of the layout game for mobile and desktop view.
 Full PDF file with wireframes you can find [here](documentation/files/wireframes.pdf)
-* Mobile view ![Mobile Wireframe](documentation/images/mobile-wireframes.png)
-* Desktop view ![Desktop Wireframe](documentation/images/desktop-wireframes.png)
+
+Mobile view 
+
+![Mobile Wireframe](documentation/images/mobile-wireframes.png)
+
+Desktop view 
+
+![Desktop Wireframe](documentation/images/desktop-wireframes.png)
 
 # Features
 ## Home Page
+Desktop View is very similar to mobile view. Main reason for designing menu in the middle of the screen is to focus user attention on it. It's very simple display, which is why user find it very handy while navigate through it. 
+
+Desktop
+
 ![Home Page](documentation/images/home-page.png)
+
+Mobile
+
+![Home Page Mobile](documentation/images/home-page-mobile.png)
+
 ### Logo
+Logo has been created on [FreeLogoDesign](https://www.freelogodesign.org/) website with main colors. The Design is very simple to catch user's eye.
+
 ![Logo](documentation/images/logo.png)
-### Player's name input
+
+### Player's nickname input
+Nickname input has been created to provide player's nickname, then it's saved in Local Storage to read data in order to create Score List. Nickname needs to be inserted to start the game and can not be longer then 12 characters. Once user set their nickname, there is no need to put it again because the input value is set from Local Storage.
+
 ![Nickname Input](documentation/images/nickname-input.png)
+
 ### Menu
+Navigation menu is clear and simple. User has three option to choose, between starting the game, see score list or read game rules.
+
 ![Menu](documentation/images/menu.png)
 
 ---
 
 ## Game Page
+By click on the PLAY button in menu user see Game Page view. Firstly 9 random pictures appear on the board to remember and the countdown is started. After 5 seconds pictures on the board flipping and main picture on the top is drawn, and user has 5 second to pic the card that user thinks is a matching with main picture.
+
 ![Gameplay View](documentation/images/gameplay.png)
+
 ### Game Header
+Game header containes exit icon and text content. Text contain information about player's nickname. It's useful to know which player is playing while there is more than one user playing locally.
+
 ![Game Header](documentation/images/game-header.png)
+
 ### Exit Icon
+Exit Icon provides user option to cancel the game and come back to the menu.
+
 ![Exit Icon](documentation/images/exit.png)
+
 ### Main Picture
+Main Picture that is drawn in the second part of the game has front and back face. The back face is a GIF with three spinning triangles, which gives effect of loading main picture. The front face is drawn picture to find a match on the 9 pictures board.
+
 ![Main Picture](documentation/images/main-pic-back.png) ![Main Picture](documentation/images/main-pic-front.png)
+
 ### Game stats - Time and Score
+Game stats container has to values, time and score. Firstly appear "Memorize Time" which means that user has to memorize 9 pictures board in this time. Secondly appear "Game Time" which means that user need to find a match in this time.
+
 ![Game stats](documentation/images/game-stats1.png) ![Game stats](documentation/images/game-stats2.png)
+
 ### Pictures Board
-![Pictures Board](documentation/images/pictures-board-front.png) ![Pictures Board](documentation/images/pictures-board-back.png)
+Pictures Board contain nine random pictures drawn from 34 piece array.
+
+![Pictures Board](documentation/images/pictures.png)
 
 ---
 
 ## Modals
+Modals are pop up windows that contains valuable information. 
+
+In this project are used to:
+- display warnings, which either inform user to enter nickname to start the game or provide correct nickname length.
+- display information about the game,
+- display information about score list, which can be either empty if user hasn't played yet nor hasn't gain any points, or can contains player's scores in the list. Score list display only 10 highest scores.
+- display positive or motivational sentences when the game is over and player's score,
+
 ### Warnings Modals
+
 ![Warning](documentation/images/warning1.png) ![Warning](documentation/images/warning2.png)
+
 ### Score List Modal
-![Score List Empty](documentation/images/score-list-empty.png) ![Score List](documentation/images/score-list.png)
+
+![Score List Empty](documentation/images/score-list-empty.png) 
+
+![Score List](documentation/images/score-list.png)
+
 ### Rules Modal
-![Rules](documentation/images/rules.png)
+Mobile view
+
+![Rules Mobile](documentation/images/rules-mobile.png)
+
+Desktop view
+
+![Rules Desktop](documentation/images/rules.png)
+
 ### Game Over Modal
+
 ![Game Over](documentation/images/gameover.png)
 
 ---
 
 ## Footer
+Footer includes Font Awesome Icons that provides social media links to LinkedIn, GitHub and Instagram.
+
 ![Footer](documentation/images/footer.png)
 
 # Technologies Used
