@@ -59,6 +59,7 @@ let rulesModal;
 let gameOverModal;
 let warningModal;
 let mainPicture;
+let allowToLeave = true;
 const scoreKey = 'FindMe!Score';
 const nicknameKey = 'FindMe!User';
 const LS = window.localStorage;
@@ -77,6 +78,8 @@ function initializeGame() {
     checkScoreListLength();
     handleGameControls();
     menuView.classList.add('show');
+    interrupt();
+    mainPicture = handleMainPicture();
 }
 
 // Game controls
@@ -92,10 +95,8 @@ function handleGameControls() {
     cards.forEach((item) => {
         item.addEventListener('click', (event) => {
             if (!allowToClick || selectedPic) {
-                
                 return;
             }
- 
             const card = event.target.closest('.card');
             revealCard(card);
         });
@@ -122,16 +123,16 @@ function startGame() {
         return false;
     }
     createBoard();
-    flipTheBoard()
+    allowToLeave = true;
+    flipTheBoard('add')
         .then(() => startCountDown(gameDuration, "Memorize Time"))
-        .then(() => flipTheBoard())
+        .then(() => flipTheBoard('remove'))
         .then(() => {
             allowToClick = true;
             randomizeMainPic();
-            toggleMainPicture();
+            mainPicture.show();
             startCountDown(gameDuration, 'Game Time');
             gameTimer = setTimeout(() => {
-                displayTimer = null;
                 gameOver();
             }, gameDuration * 1000);
         });
@@ -149,8 +150,9 @@ function revealCard(card) {
     clearInterval(displayTimer);
     gameTimer = null;
     displayTimer = null;
-    card.classList.add('show');
+    card.classList.add('show', 'clicked');
     allowToClick = false;
+    allowToLeave = false;
     wait(0.8)
         .then(() => {
             if (selectedPic === drawnMainPic) {
@@ -200,16 +202,19 @@ function createBoard() {
 }
 
 // Flipping cards
-function flipTheBoard() {
-    grid.classList.toggle('show');
+function flipTheBoard(action) {
+    grid.classList[action]('show');
 
     return wait(0.8);
 }
 
 // Visibility of the main picture
-function toggleMainPicture() {
+function handleMainPicture() {
     const mainPic = document.querySelector('.main-pic');
-    mainPic.classList.toggle('visibility');
+    return {
+        show: () => mainPic.classList.add('visibility'),
+        hide: () => mainPic.classList.remove('visibility'),
+    };
 }
 
 // Timer
@@ -249,6 +254,9 @@ function updateScore(value) {
 // Gameover
 function gameOver() {
     allowToClick = false;
+    allowToLeave = false;
+    clearInterval(displayTimer);
+    clearInterval(gameTimer);
     saveScore();
     const wantedCard = document.querySelector(`.card[data-id*="${drawnMainPic}"]`);
     wantedCard.classList.add('show');
@@ -293,8 +301,11 @@ function randomizeMotivateText() {
 function resetGame() {
     allowToClick = false;
     selectedPic = null;
-    document.querySelectorAll('.card.show').forEach(el => el.classList.remove('show'));
-    toggleMainPicture();
+    flipTheBoard('remove');
+    document.querySelectorAll('.card.show').forEach(el => el.classList.remove('show', 'clicked'));
+    mainPicture.hide();
+    clearInterval(displayTimer);
+    clearInterval(gameTimer);
 }
 
 // Save nickname in Local Storage
@@ -350,8 +361,6 @@ function saveScore() {
         nickname: nickname,
         date: (new Date()).toLocaleDateString(),
     };
-    const p = document.querySelector('#score-board-text');
-    p.style.display = 'none'; 
     scoreBoardList.push(newScore);
     scoreBoardList.sort((a,b) => b.score - a.score);
     generateReport();
@@ -362,6 +371,7 @@ function saveScore() {
 function nicknameInInput() {
     nickname = localStorage.getItem(nicknameKey);
     const input = document.querySelector('#nickname');
+
     if (nickname == null) {
         return
     } else {
@@ -454,4 +464,18 @@ function handleGameOverModal() {
     return {
         show: showModal,
     };
+}
+
+// Coming back to main menu / Interrupting the game
+function interrupt() {
+    const back = document.querySelector('#back');
+    back.addEventListener('click', () => {
+        if (!allowToLeave) {
+            return;
+        }
+        gameView.classList.remove('show');
+        menuView.classList.add('show');
+        resetGame();
+        updateScore(0);
+    });
 }
