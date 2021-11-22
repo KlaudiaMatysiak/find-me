@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Montserrat:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mochiy+Pop+P+One&family=Montserrat:wght@500&display=swap');
 
 :root {
     /* Page Pallete */
@@ -259,7 +259,6 @@ img.main-pic {
     color: #aaaaaa;
     float: right;
     font-size: 28px;
-    font-weight: bold;
 }
 
 .close:hover,
