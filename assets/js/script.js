@@ -255,7 +255,7 @@ function generateRaport() {
     ol.innerText = '';
     scoreBoardList.slice(0,10).forEach(({nickname, score, date}) => {
         const li = document.createElement('li');
-        li.innerText = `${nickname} --- ${score} --- ${date}`;
+        li.innerHTML = `<span class="nickname">${nickname}</span> <span data-score="${score}" class="score">${score}</span> <span class="date">${date}</span>`;
         ol.appendChild(li);
     })
 }
