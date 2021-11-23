@@ -218,3 +218,9 @@ The Web Storage API provides mechanisms by which browsers can store key/value pa
 ## Design
 * [Logo design](https://www.freelogodesign.org/) - Used website to create logo.
 * [Coolors](https://coolors.co/) - Used website to present colors palette in README file
+
+## Other
+I've read several articles, blogs, and posts/messages between developers about that helped me: 
+* Dataset in Javascript -  [link](https://medium.com/@adamkearney124/using-dataset-in-javascript-5331af3ec6c3), [link](https://xcatherine-jimenez.medium.com/using-dataset-in-javascript-4bfa2d657590), [link](https://www.thewebdeveloperguide.com/javascript-get-data-attribute/).
+* Local Storage - [link](https://www.javascripttutorial.net/web-apis/javascript-localstorage/), [link](https://www.kirupa.com/html5/storing_and_retrieving_an_array_from_local_storage.htm), [link](https://blog.logrocket.com/localstorage-javascript-complete-guide/).
+* Promises - [link](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Using_promises), [link](https://www.30secondsofcode.org/articles/s/javascript-await-timeout)
