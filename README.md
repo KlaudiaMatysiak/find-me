@@ -18,7 +18,7 @@ View live project [here](https://klaudiamatysiak.github.io/find-me/)
 
 [Direct link to the palette](https://coolors.co/6199af-ffffff-585858-b5dae9)
 
-I've choosen Air Superiority Blue and White colors for main layout colors. Text is either white or Davys Grey depends of the background color. Lighy Blue color is only use for styling score board list.
+I've choosen Air Superiority Blue and White colors for main layout colors. Text is either white or Davys Grey depends on the background color. Lighy Blue color is only use for styling score board list.
 
 ## Wireframes
 I created wireframes in the balsamiq program as first visual concept of the website.
@@ -35,7 +35,7 @@ Desktop view
 
 # Features
 ## Home Page
-Desktop View is very similar to mobile view. Main reason for designing menu in the middle of the screen is to focus user attention on it. It's very simple display, which is why user find it very handy while navigate through it. 
+Desktop View is very similar to mobile view. Main reason for designing menu in the middle of the screen is to focus user attention on it. It's very simple display, which is why user easily navigate through it. 
 
 Desktop
 
@@ -63,7 +63,7 @@ Navigation menu is clear and simple. User has three option to choose, between st
 ---
 
 ## Game Page
-By click on the PLAY button in menu user see Game Page view. Firstly 9 random pictures appear on the board to remember and the countdown is started. After 5 seconds pictures on the board flipping and main picture on the top is drawn, and user has 5 second to pic the card that user thinks is a matching with main picture.
+By click PLAY button on the menu is taking user to Game Page view. Firstly 9 random pictures appear on the board to remember and the countdown is started. After 5 seconds pictures on the board flipping and main picture on the top is drawn, and user has 5 second to pick the card that user thinks is the same as main picture.
 
 ![Gameplay View](documentation/images/gameplay.png)
 
@@ -83,24 +83,28 @@ Main Picture that is drawn in the second part of the game has front and back fac
 ![Main Picture](documentation/images/main-pic-back.png) ![Main Picture](documentation/images/main-pic-front.png)
 
 ### Game stats - Time and Score
-Game stats container has to values, time and score. Firstly appear "Memorize Time" which means that user has to memorize 9 pictures board in this time. Secondly appear "Game Time" which means that user need to find a match in this time.
+Game stats container has two values, time and score. Firstly appear "Memorize Time", which means that user has to memorize 9 pictures board. Next "Game Time" appear, which means that user need to find a match.
 
 ![Game stats](documentation/images/game-stats1.png) ![Game stats](documentation/images/game-stats2.png)
 
 ### Pictures Board
-Pictures Board contain nine random pictures drawn from 34 piece array.
+Pictures Board contain nine random pictures drawn from a pool of 34 pictures.
 
 ![Pictures Board](documentation/images/pictures.png)
 
 ### Show correct answer
 When timer is up or user chose wrong answer, the correct picture appear on the board and after 2 seconds will apear game over modal. 
 
-![Board](documentation/images/correct1.png)
++ User chose wrong answer.
 
-![Board](documentation/images/correct2.png)
+    ![Board](documentation/images/correct1.png)
+
++ Time is up.
+
+    ![Board](documentation/images/correct2.png)
 
 ### Clicked picture by player
-Chosen picture by user has white shadow box around it, so its clear that what user clicked.
+Chosen picture has white shadow box around it, so it's clear that user clicked in game time.
 
 ![Chosen picture](documentation/images/chosen-picture.png)
 
@@ -150,7 +154,7 @@ To cheer user up while having 0 score I created list of motivational sentences.
 ![Motivational](documentation/images/m-4.png)
 
 #### Positive sentences
-To congratulate user having more points than 0 I created list of positive feedback.
+To congratulate user for having one or more points I created list of positive feedback.
 
 ![Positive](documentation/images/p-1.png)
 
