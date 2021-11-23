@@ -82,7 +82,7 @@ Main Picture that is drawn in the second part of the game has front and back fac
 
 ![Main Picture](documentation/images/main-pic-back.png)
 ![Main Picture](documentation/images/main-pic-front.png)
-![Main Picture](assets/images/loading.png)
+![Main Picture](assets/images/loading.gif)
 
 ### Game stats - Time and Score
 Game stats container has two values, time and score. Firstly appear "Memorize Time", which means that user has to memorize 9 pictures board. Next "Game Time" appear, which means that user need to find a match.
