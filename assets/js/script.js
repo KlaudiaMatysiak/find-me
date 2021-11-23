@@ -125,13 +125,13 @@ function startGame() {
     createBoard();
     allowToLeave = true;
     flipTheBoard('add')
-        .then(() => startCountDown(gameDuration, 'Memorize Time: '))
+        .then(() => startCountDown(gameDuration, 'Memorize Time'))
         .then(() => flipTheBoard('remove'))
         .then(() => {
             allowToClick = true;
             randomizeMainPic();
             mainPicture.show();
-            startCountDown(gameDuration, 'Game Time: ');
+            startCountDown(gameDuration, 'Game Time');
             gameTimer = setTimeout(() => {
                 gameOver();
             }, gameDuration * 1000);
@@ -241,8 +241,8 @@ function updateScore(value) {
    } else {
        score += 1;
    }
-   document.querySelector('.score-value').innerText = ` ${score}`;
-   document.querySelector('#end-score').innerText = ` ${score}`;
+   document.querySelector('.score-value').innerText = score;
+   document.querySelector('#end-score').innerText = score;
 }
 
 // Gameover
