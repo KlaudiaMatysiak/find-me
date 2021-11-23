@@ -1,20 +1,47 @@
 # Testing
 ## Testing User Stories from User Experience
 ### First Time Visitor Goals
-1. As a First Time Visitor, I want to easly navigate through the game to find content and understand main purpose of it.
-- When enter the website for the first time I can easly navigate through the menu. It's clear and intuitive. I can easily find out purpose and rules of the game by clicking "Rules" button.
-2. As a First Time Visitor, I want to start play the game and have fun.
-- I can easily start the game by giving a nickname and clicking "Start" button. If I forgot put a nickname it comes up alert that I need to do that to start the game. While playing the game I do have fun and my memory is getting better.
-3. As a First Time Visitor, I want to know how much score I've reached.
-- After each finished game I know how much score I earned.
++ As a First Time Visitor, I want to easly navigate through the game to find content and understand main purpose of it.
+    + When enter the website for the first time I can easly navigate through the menu. It's clear and intuitive. I can easily find out purpose and rules of the game by clicking "Rules" button, or check score list by clicking "Scores" button.
+
+        ![Menu](documentation/images/menu.png)
+
++ As a First Time Visitor, I want to start play the game and have fun.
+    + I can easily start the game by giving a nickname and clicking "Start" button. 
+
+        ![input](documentation/images/nickname-input.png)
+
+    + If I forgot put a nickname it comes up modal with information that I need to provide nickname to start the game. 
+
+        ![modal](documentation/images/warning1.png)
+
+    + If I add to much spacing in nickname input it does not pass it into Local Storage, as I used trim function to avoid unnecessary spacing.
+
+        ![spacing](documentation/images/trim.png)
+
+    + if I add too long nickname it comes up modal with information that Nickname can not be longer than 12 characters.
+
+        ![modal](documentation/images/warning2.png)
+
+    + While playing the game I do have fun and my memory is getting better.
+
++ As a First Time Visitor, I want to know how much score I've reached.
+    + After each finished game I know how much score I earned.
+
+        ![score info](documentation/images/gameover-score.png)
+
+    + While coming back to main menu I can check score list, the maximum capacity of score list has been achived.
+
+        ![score list](documentation/images/max-score-list.png)
+
+
 
 ### Returning Visitors Goals
-1. As a Returning Visitors, I want to beat previous scores.
-- As I came back later I can try to beat my previous scores, but it's not an easy task.
-2. As a Returning Visitors, I want to keep training my brain.
-- After several games I'm training my brain. Sometimes it's better, sometimes it's not but I'm keeping up.
-3. As a Returning Visitors, I want to have fun.
-- I do have a lot of fun!
++ As a Returning Visitors, I want to see previous scores and try to beat it.
+    + As I came back later I can try to beat my previous scores, but it's not an easy task.
+    
+        ![score list max](documentation/images/max-score-list-beat.png)
+
 
 ## HTML
 * The [W3C School Validator](https://validator.w3.org/) were used to validate the HTML code on the project.
