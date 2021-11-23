@@ -276,8 +276,8 @@ function randomizePositiveText() {
     const array = [
         'Well done!',
         'Good job!',
-        'Proud of you',
-        'Nicly done',
+        'Proud of you!',
+        'Nicely done!',
         'You rock!',
     ];
     const randomIndex = Math.floor(Math.random() * array.length);
