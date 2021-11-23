@@ -5,27 +5,23 @@
         + Google Chrome,
 
             ![Google Chrome](documentation/images/chrome.png)
-
             ![Google Chrome](documentation/images/chrome2.png)
 
         + Edge,
 
             ![Edge](documentation/images/edge.png)
-
             ![Edge](documentation/images/edge2.png)
 
     + Mobile:
         + iPhone 12 Pro
 
             ![iPhone](documentation/images/iphone.jpg)
-
             ![iPhone](documentation/images/iphone2.jpg)
 
     + Tablet:
         + Samsung Galaxy Tab III
 
             ![Tablet](documentation/images/tab.jpg)
-
             ![Tablet](documentation/images/tab2.jpg)
 
 ## Testing User Stories 

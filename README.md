@@ -107,7 +107,7 @@ When timer is up or user chose wrong answer, the correct picture appear on the b
     ![Board](documentation/images/correct2.png)
 
 ### Clicked picture by player
-Chosen picture has white shadow box around it, so it's clear that user clicked in game time.
+Chosen picture has white shadow box around it, so it's clear that user clicked it during game time.
 
 ![Chosen picture](documentation/images/chosen-picture.png)
 
