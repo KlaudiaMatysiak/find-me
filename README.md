@@ -138,6 +138,35 @@ Desktop view
 
 ![Game Over](documentation/images/gameover.png)
 
+#### Motivational sentences
+To cheer user up while having 0 score I created list of motivational sentences.
+
+![Motivational](documentation/images/m-1.png)
+
+![Motivational](documentation/images/m-2.png)
+
+![Motivational](documentation/images/m-3.png)
+
+![Motivational](documentation/images/m-4.png)
+
+#### Positive sentences
+To congratulate user having more points than 0 I created list of positive feedback.
+
+![Positive](documentation/images/p-1.png)
+
+![Positive](documentation/images/p-2.png)
+
+![Positive](documentation/images/p-3.png)
+
+![Positive](documentation/images/p-4.png)
+
+![Positive](documentation/images/p-5.png)
+
+#### Buttons 
+Navigation buttons after game is over. User can choose to play again or come back to the main menu.
+
+![buttons](documentation/images/buttons.png)
+
 ---
 
 ## Footer
