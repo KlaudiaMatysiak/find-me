@@ -1,5 +1,17 @@
 # Testing
+
+## Devices
++ The project was tested on: 
+    + Desktop: 
+        + Google Chrome, 
+        + Edge,
+    + Mobile:
+        + iPhone 12 Pro
+    + Tablet:
+        + Samsung Galaxy Tab III
+
 ## Testing User Stories from User Experience
+
 ### First Time Visitor Goals
 + As a First Time Visitor, I want to easly navigate through the game to find content and understand main purpose of it.
     + When enter the website for the first time I can easly navigate through the menu. It's clear and intuitive. I can easily find out purpose and rules of the game by clicking "Rules" button, or check score list by clicking "Scores" button.
@@ -99,3 +111,25 @@
 + Fourth Lighthouse Report
 
     ![Fourth Report](documentation/images/lighthouse3.png)
+
+## Bug
++ Apple devices had problem with correct displaying pictures on the board.
+
+    ![Bug](documentation/images/bug.png)
+
+    + To fix it I used [autoprefixer](https://autoprefixer.github.io/) that helped with displaying front of the picture.
+        ```
+        .card .card-front {
+            -webkit-transform: rotateY(180deg);
+                    transform: rotateY(180deg);
+            -webkit-backface-visibility: hidden;
+                    backface-visibility: hidden;
+        }
+        ```
+
+    + To fix display animation of flipping pictures I've added z-axis in 3D space. I used Layers tools in Chrome Dev Tools.
+        ```
+        .card .card-back {
+            transform: translateZ(1px);
+        }
+        ```
