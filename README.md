@@ -1,6 +1,6 @@
 # Find Me! Game
 ![Responsive Design](documentation/images/mockup.png)
-Find Me! Game is memory type of game, I would say it's [Dark Souls](https://www.quora.com/What-makes-the-Dark-Souls-series-so-hard) of the memory games. What makes The Find Me game so hard? There is no place for a mistake and it's time limited. The player has only 5 seconds to remember the board and then have 5 seconds to find a match. There is no winning or loosing per se, but you're earning points for every match and you keep the score on the score list, so you can beat your own score or play local with a friends. The main purpose of the game is to train you memory muscle, and to have fun of course!
+Find Me! Game is memory type of game, I would say it's [Dark Souls](https://www.quora.com/What-makes-the-Dark-Souls-series-so-hard) of the memory games. What makes The Find Me game so hard? There is no place for a mistake and it's time limited. The player has only 5 seconds to remember the board and then have 5 seconds to find a match. There is no winning or losing per se, but you're earning points for every match and you keep the score on the score list, so you can beat your own score or play local with a friends. The main purpose of the game is to train you memory muscle, and to have fun of course!
 
 View live project [here](https://klaudiamatysiak.github.io/find-me/)
 
@@ -80,12 +80,15 @@ Exit Icon provides user option to cancel the game and come back to the menu.
 ### Main Picture
 Main Picture that is drawn in the second part of the game has front and back face. The back face is a GIF with three spinning triangles, which gives effect of loading main picture. The front face is drawn picture to find a match on the 9 pictures board.
 
-![Main Picture](documentation/images/main-pic-back.png) ![Main Picture](documentation/images/main-pic-front.png)
+![Main Picture](documentation/images/main-pic-back.png)
+![Main Picture](documentation/images/main-pic-front.png)
+![Main Picture](assets/images/loading.png)
 
 ### Game stats - Time and Score
 Game stats container has two values, time and score. Firstly appear "Memorize Time", which means that user has to memorize 9 pictures board. Next "Game Time" appear, which means that user need to find a match.
 
-![Game stats](documentation/images/game-stats1.png) ![Game stats](documentation/images/game-stats2.png)
+![Game stats](documentation/images/game-stats1.png)
+![Game stats](documentation/images/game-stats2.png)
 
 ### Pictures Board
 Pictures Board contain nine random pictures drawn from a pool of 34 pictures.

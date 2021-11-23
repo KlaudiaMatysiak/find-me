@@ -125,18 +125,17 @@ function startGame() {
     createBoard();
     allowToLeave = true;
     flipTheBoard('add')
-        .then(() => startCountDown(gameDuration, "Memorize Time"))
+        .then(() => startCountDown(gameDuration, 'Memorize Time: '))
         .then(() => flipTheBoard('remove'))
         .then(() => {
             allowToClick = true;
             randomizeMainPic();
             mainPicture.show();
-            startCountDown(gameDuration, 'Game Time');
+            startCountDown(gameDuration, 'Game Time: ');
             gameTimer = setTimeout(() => {
                 gameOver();
             }, gameDuration * 1000);
         });
-
     return true;
 }
 
@@ -161,7 +160,6 @@ function revealCard(card) {
                 gameOver();
             }
         });
- 
 }
 
 // Next level
@@ -204,7 +202,6 @@ function createBoard() {
 // Flipping cards
 function flipTheBoard(action) {
     grid.classList[action]('show');
-
     return wait(0.8);
 }
 
@@ -222,10 +219,8 @@ function startCountDown(timeLeft, timerText) {
     return new Promise((resolve) => {
         let timer = document.querySelector('.time-value');
         let text = document.querySelector('.timer-text');
-
         text.innerText = timerText;
         timer.innerText = timeLeft;
-        
         displayTimer = setInterval(() => {
             timeLeft--;
             if (timeLeft <= 0) {
@@ -246,9 +241,8 @@ function updateScore(value) {
    } else {
        score += 1;
    }
-
-   document.querySelector('.score-value').innerText = score;
-   document.querySelector('#end-score').innerText = score;
+   document.querySelector('.score-value').innerText = ` ${score}`;
+   document.querySelector('#end-score').innerText = ` ${score}`;
 }
 
 // Gameover
@@ -281,7 +275,6 @@ function randomizePositiveText() {
         'You rock!',
     ];
     const randomIndex = Math.floor(Math.random() * array.length);
-
     return array[randomIndex];
 }
 
@@ -293,7 +286,6 @@ function randomizeMotivateText() {
         'Stay positive!',
     ];
     const randomIndex = Math.floor(Math.random() * array.length);
-
     return array[randomIndex];
 }
 
@@ -347,14 +339,13 @@ function generateReport() {
         const li = document.createElement('li');
         li.innerHTML = `<span class="nickname">${nickname}</span> <span data-score="${score}" class="score">${score}</span> <span class="date">${date}</span>`;
         ol.appendChild(li);
-    })
+    });
 }
 
 // Save data if score > 0
 function saveScore() {
     if (score === 0) {
-
-        return
+        return;
     }
     const newScore = {
         score: score,
@@ -371,12 +362,11 @@ function saveScore() {
 function nicknameInInput() {
     nickname = localStorage.getItem(nicknameKey);
     const input = document.querySelector('#nickname');
-
     if (nickname == null) {
-        return
+        return;
     } else {
         input.setAttribute('value', nickname);
-    };
+    }
 }
 
 // Check score list information

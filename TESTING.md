@@ -1,14 +1,32 @@
 # Testing
-
 ## Devices
 + The project was tested on: 
     + Desktop: 
-        + Google Chrome, 
+        + Google Chrome,
+
+            ![Google Chrome](documentation/images/chrome.png)
+
+            ![Google Chrome](documentation/images/chrome2.png)
+
         + Edge,
+
+            ![Edge](documentation/images/edge.png)
+
+            ![Edge](documentation/images/edge2.png)
+
     + Mobile:
         + iPhone 12 Pro
+
+            ![iPhone](documentation/images/iphone.jpg)
+
+            ![iPhone](documentation/images/iphone2.jpg)
+
     + Tablet:
         + Samsung Galaxy Tab III
+
+            ![Tablet](documentation/images/tab.jpg)
+
+            ![Tablet](documentation/images/tab2.jpg)
 
 ## Testing User Stories 
 
@@ -77,22 +95,24 @@
 
 
 
-## HTML
+## Code Validation
+### HTML
 + [First input](documentation/images/error-html.png) to HTML Validator had couple errors:
     + Alt and src attributes were empty.
     + In game section was missing header.
     + In modal was h1 used.
 + I fixed all errors.
+
 * The [W3C School Validator](https://validator.w3.org/) were used to validate the HTML code on the project.
 
 ![HTML Validator](documentation/images/html-validator.png)
 
-## CSS
+### CSS
 * The [W3C School CSS Validator](https://jigsaw.w3.org/css-validator/validator.html.en) were used to validate CSS code on the project.
 
 ![CSS Validator](documentation/images/css-validator.png)
 
-## JavaScript
+### JavaScript
 * The [JSHint Validator](https://jshint.com/) were used to validate JS code on the project.
 
 ![JSHint Validator](documentation/images/js-validator.png)
@@ -112,7 +132,7 @@
 
     ![Fourth Report](documentation/images/lighthouse3.png)
 
-## Bug
+## Bug 
 + Apple devices had problem with correct displaying pictures on the board.
 
     ![Bug](documentation/images/bug.png)
