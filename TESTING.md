@@ -34,22 +34,68 @@
 
         ![score list](documentation/images/max-score-list.png)
 
-
-
 ### Returning Visitors Goals
 + As a Returning Visitors, I want to see previous scores and try to beat it.
     + As I came back later I can try to beat my previous scores, but it's not an easy task.
-    
+
         ![score list max](documentation/images/max-score-list-beat.png)
+
+## Added features after first Testing
++ Show correct answer
+    + After chosing wrong picture as user I wanted to know where was the correct one.
+
+        ![correct answer](documentation/images/correct1.png)
+
+    + When timer was up I wanted to know where was correct one.
+
+        ![correct answer](documentation/images/correct2.png)
+
++ Clicked picture by player
+    + As I added correct picture showing after game is over, there was some illusion that user chose correct answer and the game was finished. 
+    + So when user clicked correct answer while time showed 0, the correct answer appeard after user clicked at this picture, but in reality user couldn't click it as when the time is up user is not allowed to click it.
+    + For clear visualisation I added white shadow box for picture that user actually clicked in the game time.
+
+        ![Chosen picture](documentation/images/chosen-picture.png)
+
++ Exit Icon
+    + During testing sometimes I missed click buttons. Many times I clicked play but I didn't want to and there was no option on the game view of coming back then waiting 10 seconds for game to finish.
+    + So I created Exit Icon in the game header that reset the game and getting user to the menu view.
+
+        ![Exit Icon](documentation/images/exit.png)
+
 
 
 ## HTML
++ [First input](documentation/images/error-html.png) to HTML Validator had couple errors:
+    + Alt and src attributes were empty.
+    + In game section was missing header.
+    + In modal was h1 used.
++ I fixed all errors.
 * The [W3C School Validator](https://validator.w3.org/) were used to validate the HTML code on the project.
+
 ![HTML Validator](documentation/images/html-validator.png)
+
 ## CSS
 * The [W3C School CSS Validator](https://jigsaw.w3.org/css-validator/validator.html.en) were used to validate CSS code on the project.
+
 ![CSS Validator](documentation/images/css-validator.png)
+
 ## JavaScript
 * The [JSHint Validator](https://jshint.com/) were used to validate JS code on the project.
+
 ![JSHint Validator](documentation/images/js-validator.png)
+
 ## Lighthouse DevTools
++ First Lighthouse Report had 90 points in SEO so to improve that I've added meta discription in index.html file. 
+
+    ![First Report](documentation/images/lighthouse.png)
+
+- Second Lighthouse Report had 97 points in performence so to improve it I deleted unused font weights from CSS @import element. I forgot to screenshot it.
+
++ Third Lighthouse Report had 99 points in performence so to improve it I change the way of import font from google fonts.
+
+    ![Third Report](documentation/images/lighthouse2.png)
+
++ Fourth Lighthouse Report
+
+    ![Fourth Report](documentation/images/lighthouse3.png)
