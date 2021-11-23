@@ -10,7 +10,7 @@
     + Tablet:
         + Samsung Galaxy Tab III
 
-## Testing User Stories from User Experience
+## Testing User Stories 
 
 ### First Time Visitor Goals
 + As a First Time Visitor, I want to easly navigate through the game to find content and understand main purpose of it.
@@ -52,7 +52,7 @@
 
         ![score list max](documentation/images/max-score-list-beat.png)
 
-## Added features after first Testing
+## Manual Testing (Added features after first Testing)
 + Show correct answer
     + After chosing wrong picture as user I wanted to know where was the correct one.
 
