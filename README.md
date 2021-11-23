@@ -92,6 +92,18 @@ Pictures Board contain nine random pictures drawn from 34 piece array.
 
 ![Pictures Board](documentation/images/pictures.png)
 
+### Show correct answer
+When timer is up or user chose wrong answer, the correct picture appear on the board and after 2 seconds will apear game over modal. 
+
+![Board](documentation/images/correct1.png)
+
+![Board](documentation/images/correct2.png)
+
+### Clicked picture by player
+Chosen picture by user has white shadow box around it, so its clear that what user clicked.
+
+![Chosen picture](documentation/images/chosen-picture.png)
+
 ---
 
 ## Modals
